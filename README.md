@@ -1,2 +1,2 @@
 # angular-ngxs-material-starter
-A angular project with latest angular version to start your project
+A angular project with latest angular version and material design theming to start your project
