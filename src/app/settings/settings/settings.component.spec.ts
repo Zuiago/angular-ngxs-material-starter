@@ -30,31 +30,27 @@ describe('SettingsComponent', () => {
   const getSelectOptions = () =>
     fixture.debugElement.queryAll(By.css('mat-option'));
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        declarations: [SettingsComponent],
-        imports: [TestingModule]
-      }).compileComponents();
-    })
-  );
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [SettingsComponent],
+      imports: [TestingModule]
+    }).compileComponents();
+  }));
 
-  beforeEach(
-    inject([Store], (testStore: TestStore<SettingsState>) => {
-      store = testStore;
-      store.setState({
-        theme: 'DEFAULT-THEME',
-        autoNightMode: true,
-        pageAnimations: true,
-        pageAnimationsDisabled: false,
-        elementsAnimations: true,
-        language: 'en'
-      });
-      fixture = TestBed.createComponent(SettingsComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
-    })
-  );
+  beforeEach(inject([Store], (testStore: TestStore<SettingsState>) => {
+    store = testStore;
+    store.setState({
+      theme: 'DEFAULT-THEME',
+      autoNightMode: true,
+      pageAnimations: true,
+      pageAnimationsDisabled: false,
+      elementsAnimations: true,
+      language: 'en'
+    });
+    fixture = TestBed.createComponent(SettingsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
 
   it('should be created', () => {
     expect(component).toBeTruthy();

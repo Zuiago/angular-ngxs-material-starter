@@ -51,5 +51,7 @@
   "anms.settings.themes.night-mode": "Auto night mode (from 21:00 to 7:00)",
   "anms.settings.animations": "Animations",
   "anms.settings.animations.page": "Navigation whole page transition",
-  "anms.settings.animations.elements": "Navigation page elements slide up"
+  "anms.settings.animations.elements": "Navigation page elements slide up",
+  "anms.menu.configuracoes": "Configurações",
+  "anms.configuracoes.title": "Configurações"
 }

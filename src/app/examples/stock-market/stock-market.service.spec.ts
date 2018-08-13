@@ -13,10 +13,10 @@ describe('StockMarketService', () => {
     });
   });
 
-  it(
-    'should be created',
-    inject([StockMarketService], (service: StockMarketService) => {
+  it('should be created', inject(
+    [StockMarketService],
+    (service: StockMarketService) => {
       expect(service).toBeTruthy();
-    })
-  );
+    }
+  ));
 });

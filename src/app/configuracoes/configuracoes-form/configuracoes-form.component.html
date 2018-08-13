@@ -1,0 +1,24 @@
+<div class="container">
+
+    <div class="row">
+      <div class="col-sm-12"><h1>{{ 'anms.configuracoes.title' | translate }}</h1></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6 group">
+            <h2>Themes</h2>
+            <div class="icon-form-field">
+                <mat-icon fontSet="fas" fontIcon="fa-paint-brush" color="accent"></mat-icon>
+                <mat-form-field>
+                    <mat-select placeholder="Color theme"
+                                [ngModel]="configuracoes?.theme"
+                                (selectionChange)="onThemeSelect($event)">
+                        <mat-option *ngFor="let t of themes" [value]="t.value">
+                            {{t.label}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>

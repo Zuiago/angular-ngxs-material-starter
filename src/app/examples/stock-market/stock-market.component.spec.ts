@@ -47,24 +47,20 @@ describe('StockMarketComponent', () => {
     );
 
   describe('given component booted', () => {
-    beforeEach(
-      async(() => {
-        TestBed.configureTestingModule({
-          imports: [TestingModule, CoreModule, ExamplesModule],
-          providers: [{ provide: Store, useClass: TestStore }]
-        }).compileComponents();
-      })
-    );
+    beforeEach(async(() => {
+      TestBed.configureTestingModule({
+        imports: [TestingModule, CoreModule, ExamplesModule],
+        providers: [{ provide: Store, useClass: TestStore }]
+      }).compileComponents();
+    }));
 
-    beforeEach(
-      inject([Store], (testStore: TestStore<StockMarketState>) => {
-        store = testStore;
-        store.setState({ symbol: '', loading: true });
-        fixture = TestBed.createComponent(StockMarketComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-      })
-    );
+    beforeEach(inject([Store], (testStore: TestStore<StockMarketState>) => {
+      store = testStore;
+      store.setState({ symbol: '', loading: true });
+      fixture = TestBed.createComponent(StockMarketComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    }));
 
     it('should be created', () => {
       expect(component).toBeTruthy();
