@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-import { Stock } from './stock-market.reducer';
+import {Stock} from '@app/examples/mercado-acoes/mercado-acoes.state';
+import {map} from 'rxjs/internal/operators/map';
 
 const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
 
 @Injectable()
-export class StockMarketService {
+export class MercadoAcoesService {
   constructor(private httpClient: HttpClient) {}
 
   retrieveStock(symbol: string): Observable<Stock> {

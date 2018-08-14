@@ -1,9 +1,7 @@
 import {ConfiguracoesStateModel} from './configuracoes.state';
 
-export const CONFIGURACOES_KEY = 'CONFIGURACOES';
-export const NIGHT_MODE_THEME = 'BLACK-THEME';
-
 export enum ConfiguracoesActionTypes {
+    CHANGE_LANGUAGE = '[Configuracoes] Change Language',
     CHANGE_THEME = '[Configuracoes] Change Theme',
     CHANGE_AUTO_NIGHT_AUTO_MODE = '[Configuracoes] Change Auto Night Mode',
     CHANGE_ANIMATIONS_PAGE = '[Configuracoes] Change Animations Page',
@@ -12,17 +10,46 @@ export enum ConfiguracoesActionTypes {
     PERSIST = '[Configuracoes] Persist'
 }
 
-export class SetTheme {
-    static readonly type = ConfiguracoesActionTypes.CHANGE_THEME;
-    constructor(public payload: string) {}
+export type Language = 'en' | 'sk';
+
+export class ActionConfiguracoesChangeLanguage {
+  static readonly type = ConfiguracoesActionTypes.CHANGE_LANGUAGE;
+
+  constructor(readonly payload: Language) {}
 }
 
-export class SetAnimationsPageDisabled {
-    static readonly type = ConfiguracoesActionTypes.CHANGE_ANIMATIONS_PAGE_DISABLED;
-    constructor(public payload: boolean) {}
+export class ActionConfiguracoesChangeTheme {
+  static readonly type = ConfiguracoesActionTypes.CHANGE_THEME;
+
+  constructor(readonly payload: string) {}
 }
 
-export class Persist {
-    static readonly type = ConfiguracoesActionTypes.PERSIST;
-    constructor(public payload: { configuracoes: ConfiguracoesStateModel}) {}
+export class ActionConfiguracoesChangeAutoNightMode {
+  static readonly type = ConfiguracoesActionTypes.CHANGE_AUTO_NIGHT_AUTO_MODE;
+
+  constructor(readonly payload: boolean) {}
+}
+
+export class ActionConfiguracoesChangeAnimationsPage {
+  static readonly type = ConfiguracoesActionTypes.CHANGE_ANIMATIONS_PAGE;
+
+  constructor(readonly payload: boolean) {}
+}
+
+export class ActionConfiguracoesChangeAnimationsPageDisabled {
+  static readonly type = ConfiguracoesActionTypes.CHANGE_ANIMATIONS_PAGE_DISABLED;
+
+  constructor(readonly payload: boolean) {}
+}
+
+export class ActionConfiguracoesChangeAnimationsElements {
+  static readonly type = ConfiguracoesActionTypes.CHANGE_ANIMATIONS_ELEMENTS;
+
+  constructor(readonly payload: boolean) {}
+}
+
+export class ActionConfiguracoesPersist {
+  static readonly type = ConfiguracoesActionTypes.PERSIST;
+
+  constructor(readonly payload: { configuracoes: ConfiguracoesStateModel }) {}
 }

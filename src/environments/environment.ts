@@ -6,7 +6,7 @@
 const packageJson = require('../../package.json');
 
 export const environment = {
-  appName: 'Angular Ngrx Material Starter',
+  appName: 'Angular Ngxs Material Starter',
   envName: 'DEV',
   production: false,
   test: false,
@@ -14,7 +14,7 @@ export const environment = {
   versions: {
     app: packageJson.version,
     angular: packageJson.dependencies['@angular/core'],
-    ngrx: packageJson.dependencies['@ngrx/store'],
+    ngxs: packageJson.dependencies['@ngxs/store'],
     material: packageJson.dependencies['@angular/material'],
     bootstrap: packageJson.dependencies.bootstrap,
     rxjs: packageJson.dependencies.rxjs,

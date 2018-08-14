@@ -5,23 +5,18 @@ import {
   inject
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Store } from '@ngrx/store';
+import { Store } from '@ngxs/store';
 
 import { TestStore, TestingModule } from '@testing/utils';
 
 import { TodosComponent } from './todos.component';
-import {
-  ActionTodosAdd,
-  ActionTodosFilter,
-  ActionTodosToggle,
-  ActionTodosRemoveDone,
-  TodosState
-} from './todos.reducer';
+import { TodosStateModel} from '@app/examples/todos/todos.state';
+import {ActionTodosAdd, ActionTodosFilter, ActionTodosRemoveDone, ActionTodosToggle} from '@app/examples/todos/todos.actions';
 
 describe('TodosComponent', () => {
   let component: TodosComponent;
   let fixture: ComponentFixture<TodosComponent>;
-  let store: TestStore<TodosState>;
+  let store: TestStore<TodosStateModel>;
   let dispatchSpy;
 
   const getTodos = () => fixture.debugElement.queryAll(By.css('.todo'));
@@ -55,7 +50,7 @@ describe('TodosComponent', () => {
     }).compileComponents();
   }));
 
-  beforeEach(inject([Store], (testStore: TestStore<TodosState>) => {
+  beforeEach(inject([Store], (testStore: TestStore<TodosStateModel>) => {
     store = testStore;
     store.setState({ items: [], filter: 'ALL' });
     fixture = TestBed.createComponent(TodosComponent);

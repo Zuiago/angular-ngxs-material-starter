@@ -1,0 +1,30 @@
+import {Injectable} from '@angular/core';
+import {Actions, ofActionDispatched} from '@ngxs/store';
+import {CONFIGURACOES_KEY, Persist} from './configuracoes.actions';
+import {LocalStorageService} from '@app/core';
+import {tap} from 'rxjs/operators';
+import {Router} from '@angular/router';
+import {ActionAuthLogin, ActionAuthLogout} from '@app/core/auth/auth.actions';
+import {AUTH_KEY} from '@app/core/auth/auth.state';
+
+@Injectable()
+export class AuthHandler {
+  constructor(private actions$: Actions,
+              private localStorageService: LocalStorageService,
+              private router: Router) {
+    console.log('auth handler created');
+
+    this.actions$.pipe(ofActionDispatched(ActionAuthLogin),
+      tap(() => {
+        this.localStorageService.setItem(AUTH_KEY, {isAuthenticated: true});
+      })
+    );
+
+    this.actions$.pipe(ofActionDispatched(ActionAuthLogout),
+      tap(() => {
+        this.router.navigate(['']);
+        this.localStorageService.setItem(AUTH_KEY, {isAuthenticated: false});
+      })
+    );
+  }
+}

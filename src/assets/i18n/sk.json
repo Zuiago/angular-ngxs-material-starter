@@ -1,5 +1,5 @@
 {
-  "anms.title": "Angular NgRx Material Štartér",
+  "anms.title": "Angular Ngxs Material Štartér",
   "anms.title.short": "Angular Štartér",
   "anms.header.github": "Github Repotitár Projektu",
   "anms.footer.changelog": "Zobraziť list zmien",
@@ -23,7 +23,7 @@
   "anms.features.angular-material":
     "Knižnica komponentov implementujúcich Material Dizajn",
   "anms.features.angular-cli": "Rozhranie príkazového riadka pre Angular",
-  "anms.features.ngrx": "Jednosmerný tok dát s pomocou RxJS Observables",
+  "anms.features.ngxs": "Jednosmerný tok dát s pomocou RxJS Observables",
   "anms.features.rxjs":
     "Reaktívne programovanie s asynchrónymi kolekciami s pomocou Observables",
   "anms.features.ngxtranslate":

@@ -1,22 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { ROUTE_ANIMATIONS_ELEMENTS } from '@app/core';
 
+import {Store} from '@ngxs/store';
+import {selectorTodos, Todo, TodosFilter, TodosStateModel} from '@app/examples/todos/todos.state';
 import {
-  ActionTodosAdd,
-  ActionTodosPersist,
-  ActionTodosFilter,
-  ActionTodosRemoveDone,
-  ActionTodosToggle,
-  selectorTodos,
-  Todo,
-  TodosFilter,
-  TodosState
-} from './todos.reducer';
+  ActionTodosAdd, ActionTodosFilter, ActionTodosPersist, ActionTodosRemoveDone,
+  ActionTodosToggle
+} from '@app/examples/todos/todos.actions';
 
 @Component({
   selector: 'anms-todos',
@@ -27,10 +21,10 @@ export class TodosComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
 
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
-  todos: TodosState;
+  todos: TodosStateModel;
   newTodo = '';
 
-  constructor(public store: Store<any>, public snackBar: MatSnackBar) {}
+  constructor(public store: Store, public snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.store

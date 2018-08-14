@@ -1,28 +1,23 @@
-import { By } from '@angular/platform-browser';
-import { Store } from '@ngrx/store';
-import { MatSlideToggle } from '@angular/material';
+import {By} from '@angular/platform-browser';
+import {Store} from '@ngxs/store';
+import {MatSlideToggle} from '@angular/material';
+import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
+
+import {TestingModule, TestStore} from '@testing/utils';
+
+import {SettingsComponent} from './settings.component';
+import {ConfiguracoesStateModel} from '@app/configuracoes/configuracoes.state';
+import {ConfiguracoesFormComponent} from '@app/configuracoes';
 import {
-  async,
-  ComponentFixture,
-  TestBed,
-  inject
-} from '@angular/core/testing';
+  ActionConfiguracoesChangeAnimationsElements,
+  ActionConfiguracoesChangeAnimationsPage, ActionConfiguracoesChangeAutoNightMode,
+  ActionConfiguracoesChangeTheme
+} from '@app/configuracoes/configuracoes.actions';
 
-import { TestingModule, TestStore } from '@testing/utils';
-
-import { SettingsComponent } from './settings.component';
-import {
-  SettingsState,
-  ActionSettingsChangeTheme,
-  ActionSettingsChangeAutoNightMode,
-  ActionSettingsChangeAnimationsPage,
-  ActionSettingsChangeAnimationsElements
-} from '../settings.reducer';
-
-describe('SettingsComponent', () => {
-  let component: SettingsComponent;
-  let fixture: ComponentFixture<SettingsComponent>;
-  let store: TestStore<SettingsState>;
+describe('ConfiguracoesFormComponent', () => {
+  let component: ConfiguracoesFormComponent;
+  let fixture: ComponentFixture<ConfiguracoesFormComponent>;
+  let store: TestStore<ConfiguracoesStateModel>;
   let dispatchSpy;
 
   const getThemeSelectArrow = () =>
@@ -37,7 +32,7 @@ describe('SettingsComponent', () => {
     }).compileComponents();
   }));
 
-  beforeEach(inject([Store], (testStore: TestStore<SettingsState>) => {
+  beforeEach(inject([Store], (testStore: TestStore<ConfiguracoesStateModel>) => {
     store = testStore;
     store.setState({
       theme: 'DEFAULT-THEME',
@@ -54,9 +49,9 @@ describe('SettingsComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
-    expect(component.settings.theme).toBe('DEFAULT-THEME');
-    expect(component.settings.autoNightMode).toBeTruthy();
-    expect(component.settings.pageAnimations).toBeTruthy();
+    expect(component.configuracoes.theme).toBe('DEFAULT-THEME');
+    expect(component.configuracoes.autoNightMode).toBeTruthy();
+    expect(component.configuracoes.pageAnimations).toBeTruthy();
   });
 
   it('should dispatch change theme action on theme selection', () => {
@@ -71,7 +66,7 @@ describe('SettingsComponent', () => {
 
     expect(dispatchSpy).toHaveBeenCalledTimes(2);
     expect(dispatchSpy).toHaveBeenCalledWith(
-      new ActionSettingsChangeTheme({ theme: 'LIGHT-THEME' })
+      new ActionConfiguracoesChangeTheme('LIGHT-THEME')
     );
   });
 
@@ -80,12 +75,12 @@ describe('SettingsComponent', () => {
     const componentDebug = fixture.debugElement;
     const slider = componentDebug.queryAll(By.directive(MatSlideToggle))[0];
 
-    slider.triggerEventHandler('change', { checked: false });
+    slider.triggerEventHandler('change', {checked: false});
     fixture.detectChanges();
 
     expect(dispatchSpy).toHaveBeenCalledTimes(2);
     expect(dispatchSpy).toHaveBeenCalledWith(
-      new ActionSettingsChangeAutoNightMode({ autoNightMode: false })
+      new ActionConfiguracoesChangeAutoNightMode(false)
     );
   });
 
@@ -94,12 +89,12 @@ describe('SettingsComponent', () => {
     const componentDebug = fixture.debugElement;
     const slider = componentDebug.queryAll(By.directive(MatSlideToggle))[1];
 
-    slider.triggerEventHandler('change', { checked: false });
+    slider.triggerEventHandler('change', {checked: false});
     fixture.detectChanges();
 
     expect(dispatchSpy).toHaveBeenCalledTimes(2);
     expect(dispatchSpy).toHaveBeenCalledWith(
-      new ActionSettingsChangeAnimationsPage({ pageAnimations: false })
+      new ActionConfiguracoesChangeAnimationsPage(false)
     );
   });
 
@@ -108,12 +103,12 @@ describe('SettingsComponent', () => {
     const componentDebug = fixture.debugElement;
     const slider = componentDebug.queryAll(By.directive(MatSlideToggle))[2];
 
-    slider.triggerEventHandler('change', { checked: false });
+    slider.triggerEventHandler('change', {checked: false});
     fixture.detectChanges();
 
     expect(dispatchSpy).toHaveBeenCalledTimes(2);
     expect(dispatchSpy).toHaveBeenCalledWith(
-      new ActionSettingsChangeAnimationsElements({ elementsAnimations: false })
+      new ActionConfiguracoesChangeAnimationsElements(false)
     );
   });
 
@@ -132,7 +127,7 @@ describe('SettingsComponent', () => {
     const componentDebug = fixture.debugElement;
     const slider = componentDebug.queryAll(By.directive(MatSlideToggle))[1];
 
-    slider.triggerEventHandler('change', { checked: false });
+    slider.triggerEventHandler('change', {checked: false});
     fixture.detectChanges();
 
     expect(dispatchSpy).toHaveBeenCalledTimes(0);

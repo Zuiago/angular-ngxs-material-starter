@@ -1,5 +1,5 @@
 {
-  "anms.title": "Angular NgRx Material Starter",
+  "anms.title": "Angular Ngxs Material Starter",
   "anms.title.short": "Angular Starter",
   "anms.header.github": "Project Github Repository",
   "anms.footer.changelog": "Show changelog",
@@ -22,7 +22,7 @@
   "anms.features.angular": "Modern powerful framework",
   "anms.features.angular-material": "Material design component library",
   "anms.features.angular-cli": "A command line interface for Angular",
-  "anms.features.ngrx": "One way data flow powered by RxJS Observables",
+  "anms.features.ngxs": "One way data flow powered by RxJS Observables",
   "anms.features.ngxtranslate": "An internationalization library for Angular",
   "anms.features.rxjs":
     "Reactive programming with async collections using Observables",

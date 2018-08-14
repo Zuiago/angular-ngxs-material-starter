@@ -1,30 +1,22 @@
-import {
-  async,
-  ComponentFixture,
-  inject,
-  TestBed
-} from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { HttpErrorResponse } from '@angular/common/http';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterTestingModule } from '@angular/router/testing';
+import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
+import {By} from '@angular/platform-browser';
+import {HttpErrorResponse} from '@angular/common/http';
 
-import { Store } from '@ngrx/store';
-import { TestingModule, TestStore } from '@testing/utils';
-import { CoreModule } from '@app/core';
+import {Store} from '@ngrx/store';
+import {TestingModule, TestStore} from '@testing/utils';
+import {CoreModule} from '@app/core';
 
-import { ExamplesModule } from '../examples.module';
+import {ExamplesModule} from '../examples.module';
 
-import { StockMarketComponent } from './stock-market.component';
-import {
-  StockMarketState,
-  ActionStockMarketRetrieve
-} from './stock-market.reducer';
+import {StockMarketComponent} from './stock-market.component';
+import {MercadoAcoesComponent} from '@app/examples/mercado-acoes/mercado-acoes.component';
+import {MercadoAcoesStateModel} from '@app/examples/mercado-acoes/mercado-acoes.state';
+import {ActionStockMarketRetrieve} from '@app/examples/mercado-acoes/mercado-acoes.actions';
 
 describe('StockMarketComponent', () => {
-  let component: StockMarketComponent;
-  let fixture: ComponentFixture<StockMarketComponent>;
-  let store: TestStore<StockMarketState>;
+  let component: MercadoAcoesComponent;
+  let fixture: ComponentFixture<MercadoAcoesComponent>;
+  let store: TestStore<MercadoAcoesStateModel>;
 
   const getSpinner = () => fixture.debugElement.query(By.css('mat-spinner'));
 
@@ -54,7 +46,7 @@ describe('StockMarketComponent', () => {
       }).compileComponents();
     }));
 
-    beforeEach(inject([Store], (testStore: TestStore<StockMarketState>) => {
+    beforeEach(inject([Store], (testStore: TestStore<MercadoAcoesStateModel>) => {
       store = testStore;
       store.setState({ symbol: '', loading: true });
       fixture = TestBed.createComponent(StockMarketComponent);
