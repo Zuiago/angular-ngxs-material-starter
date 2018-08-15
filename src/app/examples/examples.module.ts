@@ -27,8 +27,6 @@ import {MercadoAcoesHandler} from '@app/examples/mercado-acoes/mercado-acoes.han
   imports: [
     SharedModule,
     ExamplesRoutingModule,
-    NgxsModule.forFeature([TodosState, MercadoAcoesState]),
-    HandlerModule.forRoot([TodosHandler, MercadoAcoesHandler]),
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
@@ -36,7 +34,8 @@ import {MercadoAcoesHandler} from '@app/examples/mercado-acoes/mercado-acoes.han
         deps: [HttpClient]
       },
       isolate: true
-    })
+    }),
+    NgxsModule.forFeature([TodosState, MercadoAcoesState])
   ],
   declarations: [
     ExamplesComponent,

@@ -13,8 +13,6 @@ export const initialState: MercadoAcoesStateModel = {
   loading: false
 };
 
-export const selectorStocks = state => state.examples.stocks;
-
 @State<MercadoAcoesStateModel>({
   name: 'mercadoacoes',
   defaults: initialState

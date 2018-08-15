@@ -18,6 +18,8 @@ import { HandlerModule } from '@app/core/handler.module';
 import { AuthState } from '@app/core/auth/auth.state';
 import { ConfiguracoesHandler } from '@app/configuracoes/configuracoes.handler';
 import { AuthHandler } from '@app/core/auth/auth.handler';
+import {TodosHandler} from '@app/examples/todos/todos.handler';
+import {MercadoAcoesHandler} from '@app/examples/mercado-acoes/mercado-acoes.handler';
 
 @NgModule({
   imports: [
@@ -35,7 +37,7 @@ import { AuthHandler } from '@app/core/auth/auth.handler';
 
     // ngxs
     NgxsModule.forRoot([ConfiguracoesState, AuthState]),
-    HandlerModule.forRoot([ConfiguracoesHandler, AuthHandler]),
+    HandlerModule.forRoot([ConfiguracoesHandler, AuthHandler, TodosHandler, MercadoAcoesHandler]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
 

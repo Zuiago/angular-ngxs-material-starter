@@ -29,7 +29,6 @@ export class AuthHandler {
     );
   }
 
-
   public get router(): Router {
     return this.injector.get(Router);
   }

@@ -26,10 +26,10 @@ export class TodosComponent implements OnInit, OnDestroy {
   todos: TodosStateModel;
   newTodo = '';
 
-  constructor(public store: Store, public snackBar: MatSnackBar) {}
+  constructor(public store: Store, public snackBar: MatSnackBar) {
+  }
 
   ngOnInit() {
-
     this.store.select(state => state.todos).subscribe(todos => {
       this.todos = todos;
       this.store.dispatch(new ActionTodosPersist({ todos }));

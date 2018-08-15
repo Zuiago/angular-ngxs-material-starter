@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Injector} from '@angular/core';
 import {Actions, ofActionDispatched} from '@ngxs/store';
 
 import {LocalStorageService} from '@app/core';
@@ -22,7 +22,7 @@ import {of} from 'rxjs';
 export class MercadoAcoesHandler {
   constructor(private actions$: Actions,
               private localStorageService: LocalStorageService,
-              private service: MercadoAcoesService) {
+              private injector: Injector) {
     console.log('mercado acoes handler created');
     this.actions$.pipe(ofActionDispatched(ActionStockMarketRetrieve),
       tap(action =>
@@ -33,7 +33,7 @@ export class MercadoAcoesHandler {
       distinctUntilChanged(),
       debounceTime(500),
       switchMap((action: ActionStockMarketRetrieve) =>
-        this.service
+        this.mercadoAcoesService
           .retrieveStock(action.payload.symbol)
           .pipe(
             map(stock => new ActionStockMarketRetrieveSuccess({stock})),
@@ -42,6 +42,10 @@ export class MercadoAcoesHandler {
             )
           )
       )
-    );
+    ).subscribe();
+  }
+
+  public get mercadoAcoesService(): MercadoAcoesService {
+    return this.injector.get(MercadoAcoesService);
   }
 }
