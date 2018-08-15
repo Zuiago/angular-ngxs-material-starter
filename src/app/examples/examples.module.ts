@@ -19,9 +19,6 @@ import {NgxsModule} from '@ngxs/store';
 import {MercadoAcoesState} from '@app/examples/mercado-acoes/mercado-acoes.state';
 import {MercadoAcoesService} from '@app/examples/mercado-acoes/mercado-acoes.service';
 import {TodosState} from '@app/examples/todos/todos.state';
-import {HandlerModule} from '@app/core/handler.module';
-import {TodosHandler} from '@app/examples/todos/todos.handler';
-import {MercadoAcoesHandler} from '@app/examples/mercado-acoes/mercado-acoes.handler';
 
 @NgModule({
   imports: [

@@ -22,7 +22,7 @@ export class MercadoAcoesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.initialized = false;
     this.store
-      .select(state => state.examples.stocks)
+      .select(state => state.mercadoacoes)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((stocks: any) => {
         this.stocks = stocks;
