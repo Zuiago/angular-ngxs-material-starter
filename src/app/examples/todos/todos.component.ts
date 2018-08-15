@@ -1,14 +1,16 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Subject} from 'rxjs';
 
-import { ROUTE_ANIMATIONS_ELEMENTS } from '@app/core';
+import {ROUTE_ANIMATIONS_ELEMENTS} from '@app/core';
 
 import {Store} from '@ngxs/store';
-import {selectorTodos, Todo, TodosFilter, TodosStateModel} from '@app/examples/todos/todos.state';
+import {Todo, TodosFilter, TodosStateModel} from '@app/examples/todos/todos.state';
 import {
-  ActionTodosAdd, ActionTodosFilter, ActionTodosPersist, ActionTodosRemoveDone,
+  ActionTodosAdd,
+  ActionTodosFilter,
+  ActionTodosPersist,
+  ActionTodosRemoveDone,
   ActionTodosToggle
 } from '@app/examples/todos/todos.actions';
 
@@ -27,13 +29,11 @@ export class TodosComponent implements OnInit, OnDestroy {
   constructor(public store: Store, public snackBar: MatSnackBar) {}
 
   ngOnInit() {
-    this.store
-      .select(selectorTodos)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(todos => {
-        this.todos = todos;
-        this.store.dispatch(new ActionTodosPersist({ todos }));
-      });
+
+    this.store.select(state => state.todos).subscribe(todos => {
+      this.todos = todos;
+      this.store.dispatch(new ActionTodosPersist({ todos }));
+    });
   }
 
   ngOnDestroy(): void {

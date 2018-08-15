@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Injector} from '@angular/core';
 import {Actions, ofActionDispatched} from '@ngxs/store';
 import {CONFIGURACOES_KEY, Persist} from './configuracoes.actions';
 import {LocalStorageService} from '@app/core';
@@ -9,9 +9,10 @@ import {AUTH_KEY} from '@app/core/auth/auth.state';
 
 @Injectable()
 export class AuthHandler {
+
   constructor(private actions$: Actions,
               private localStorageService: LocalStorageService,
-              private router: Router) {
+              private injector: Injector) {
     console.log('auth handler created');
 
     this.actions$.pipe(ofActionDispatched(ActionAuthLogin),
@@ -26,5 +27,10 @@ export class AuthHandler {
         this.localStorageService.setItem(AUTH_KEY, {isAuthenticated: false});
       })
     );
+  }
+
+
+  public get router(): Router {
+    return this.injector.get(Router);
   }
 }

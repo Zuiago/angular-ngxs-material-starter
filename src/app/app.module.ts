@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { SharedModule } from '@app/shared';
 import { CoreModule } from '@app/core';
@@ -14,14 +14,10 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { ConfiguracoesState } from '@app/configuracoes/configuracoes.state';
+import { HandlerModule } from '@app/core/handler.module';
 import { AuthState } from '@app/core/auth/auth.state';
 import { ConfiguracoesHandler } from '@app/configuracoes/configuracoes.handler';
 import { AuthHandler } from '@app/core/auth/auth.handler';
-
-// Noop handler for factory function
-export function noop() {
-  return function() {};
-}
 
 @NgModule({
   imports: [
@@ -39,6 +35,7 @@ export function noop() {
 
     // ngxs
     NgxsModule.forRoot([ConfiguracoesState, AuthState]),
+    HandlerModule.forRoot([ConfiguracoesHandler, AuthHandler]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
 
@@ -46,14 +43,7 @@ export function noop() {
     AppRoutingModule
   ],
   declarations: [AppComponent],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: noop,
-      deps: [ConfiguracoesHandler, AuthHandler],
-      multi: true
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
