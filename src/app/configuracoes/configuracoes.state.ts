@@ -23,9 +23,6 @@ export interface ConfiguracoesStateModel {
   elementsAnimations: boolean;
 }
 
-export const selectorConfiguracoes = state =>
-  <ConfiguracoesStateModel>(state.confiuracoes || { theme: '' });
-
 @State<ConfiguracoesStateModel>({
   name: 'configuracoes',
   defaults: {

@@ -22,8 +22,6 @@ export const initialState: TodosStateModel = {
   filter: 'ALL'
 };
 
-export const selectorTodos = state => state.examples.todos;
-
 @State<TodosStateModel>({
   name: 'todos',
   defaults: initialState
