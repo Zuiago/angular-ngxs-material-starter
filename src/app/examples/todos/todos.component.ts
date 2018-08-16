@@ -32,7 +32,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.store.select(state => state.todos).subscribe(todos => {
       this.todos = todos;
-      this.store.dispatch(new ActionTodosPersist({ todos }));
+      this.store.dispatch(new ActionTodosPersist({todos}));
     });
   }
 
@@ -68,17 +68,17 @@ export class TodosComponent implements OnInit, OnDestroy {
   }
 
   onAddTodo() {
-    this.store.dispatch(new ActionTodosAdd({ name: this.newTodo }));
+    this.store.dispatch(new ActionTodosAdd({name: this.newTodo}));
     this.showNotification(`"${this.newTodo}" added`);
     this.newTodo = '';
   }
 
   onToggleTodo(todo: Todo) {
     const newStatus = todo.done ? 'active' : 'done';
-    this.store.dispatch(new ActionTodosToggle({ id: todo.id }));
+    this.store.dispatch(new ActionTodosToggle({id: todo.id}));
     this.showNotification(`Toggled "${todo.name}" to ${newStatus}`, 'Undo')
       .onAction()
-      .subscribe(() => this.onToggleTodo({ ...todo, done: !todo.done }));
+      .subscribe(() => this.onToggleTodo({...todo, done: !todo.done}));
   }
 
   onRemoveDoneTodos() {
@@ -87,7 +87,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   }
 
   onFilterTodos(filter: TodosFilter) {
-    this.store.dispatch(new ActionTodosFilter({ filter }));
+    this.store.dispatch(new ActionTodosFilter({filter}));
     this.showNotification(`Filtered to ${filter.toLowerCase()}`);
   }
 

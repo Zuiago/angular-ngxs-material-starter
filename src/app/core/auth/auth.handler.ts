@@ -15,18 +15,14 @@ export class AuthHandler {
               private injector: Injector) {
     console.log('auth handler created');
 
-    this.actions$.pipe(ofActionDispatched(ActionAuthLogin),
-      tap(() => {
-        this.localStorageService.setItem(AUTH_KEY, {isAuthenticated: true});
-      })
-    );
+    this.actions$.pipe(ofActionDispatched(ActionAuthLogin)).subscribe(() => {
+      this.localStorageService.setItem(AUTH_KEY, {isAuthenticated: true});
+    });
 
-    this.actions$.pipe(ofActionDispatched(ActionAuthLogout),
-      tap(() => {
-        this.router.navigate(['']);
-        this.localStorageService.setItem(AUTH_KEY, {isAuthenticated: false});
-      })
-    );
+    this.actions$.pipe(ofActionDispatched(ActionAuthLogout)).subscribe(() => {
+      this.router.navigate(['']);
+      this.localStorageService.setItem(AUTH_KEY, {isAuthenticated: false});
+    });
   }
 
   public get router(): Router {
