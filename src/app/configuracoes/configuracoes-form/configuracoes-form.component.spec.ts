@@ -1,16 +1,22 @@
-import {By} from '@angular/platform-browser';
-import {Store} from '@ngxs/store';
-import {MatSlideToggle} from '@angular/material';
-import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { Store } from '@ngxs/store';
+import { MatSlideToggle } from '@angular/material';
+import {
+  async,
+  ComponentFixture,
+  inject,
+  TestBed
+} from '@angular/core/testing';
 
-import {TestingModule, TestStore} from '@testing/utils';
+import { TestingModule, TestStore } from '@testing/utils';
 
-import {SettingsComponent} from './settings.component';
-import {ConfiguracoesStateModel} from '@app/configuracoes/configuracoes.state';
-import {ConfiguracoesFormComponent} from '@app/configuracoes';
+import { SettingsComponent } from './settings.component';
+import { ConfiguracoesStateModel } from '@app/configuracoes/configuracoes.state';
+import { ConfiguracoesFormComponent } from '@app/configuracoes';
 import {
   ActionConfiguracoesChangeAnimationsElements,
-  ActionConfiguracoesChangeAnimationsPage, ActionConfiguracoesChangeAutoNightMode,
+  ActionConfiguracoesChangeAnimationsPage,
+  ActionConfiguracoesChangeAutoNightMode,
   ActionConfiguracoesChangeTheme
 } from '@app/configuracoes/configuracoes.actions';
 
@@ -32,20 +38,23 @@ describe('ConfiguracoesFormComponent', () => {
     }).compileComponents();
   }));
 
-  beforeEach(inject([Store], (testStore: TestStore<ConfiguracoesStateModel>) => {
-    store = testStore;
-    store.setState({
-      theme: 'DEFAULT-THEME',
-      autoNightMode: true,
-      pageAnimations: true,
-      pageAnimationsDisabled: false,
-      elementsAnimations: true,
-      language: 'en'
-    });
-    fixture = TestBed.createComponent(SettingsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  beforeEach(inject(
+    [Store],
+    (testStore: TestStore<ConfiguracoesStateModel>) => {
+      store = testStore;
+      store.setState({
+        theme: 'DEFAULT-THEME',
+        autoNightMode: true,
+        pageAnimations: true,
+        pageAnimationsDisabled: false,
+        elementsAnimations: true,
+        language: 'en'
+      });
+      fixture = TestBed.createComponent(SettingsComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    }
+  ));
 
   it('should be created', () => {
     expect(component).toBeTruthy();
@@ -75,7 +84,7 @@ describe('ConfiguracoesFormComponent', () => {
     const componentDebug = fixture.debugElement;
     const slider = componentDebug.queryAll(By.directive(MatSlideToggle))[0];
 
-    slider.triggerEventHandler('change', {checked: false});
+    slider.triggerEventHandler('change', { checked: false });
     fixture.detectChanges();
 
     expect(dispatchSpy).toHaveBeenCalledTimes(2);
@@ -89,7 +98,7 @@ describe('ConfiguracoesFormComponent', () => {
     const componentDebug = fixture.debugElement;
     const slider = componentDebug.queryAll(By.directive(MatSlideToggle))[1];
 
-    slider.triggerEventHandler('change', {checked: false});
+    slider.triggerEventHandler('change', { checked: false });
     fixture.detectChanges();
 
     expect(dispatchSpy).toHaveBeenCalledTimes(2);
@@ -103,7 +112,7 @@ describe('ConfiguracoesFormComponent', () => {
     const componentDebug = fixture.debugElement;
     const slider = componentDebug.queryAll(By.directive(MatSlideToggle))[2];
 
-    slider.triggerEventHandler('change', {checked: false});
+    slider.triggerEventHandler('change', { checked: false });
     fixture.detectChanges();
 
     expect(dispatchSpy).toHaveBeenCalledTimes(2);
@@ -127,7 +136,7 @@ describe('ConfiguracoesFormComponent', () => {
     const componentDebug = fixture.debugElement;
     const slider = componentDebug.queryAll(By.directive(MatSlideToggle))[1];
 
-    slider.triggerEventHandler('change', {checked: false});
+    slider.triggerEventHandler('change', { checked: false });
     fixture.detectChanges();
 
     expect(dispatchSpy).toHaveBeenCalledTimes(0);
