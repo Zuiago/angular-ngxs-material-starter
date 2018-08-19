@@ -35,12 +35,15 @@ export class MercadoAcoesHandler {
       debounceTime(500),
       switchMap((action: ActionStockMarketRetrieve) =>
         this.mercadoAcoesService
-          .retrieveStock(action.payload.symbol).pipe(
-          map(stock => this.store.dispatch(new ActionStockMarketRetrieveSuccess({stock})),
-          catchError(error =>
-            of(this.store.dispatch(new ActionStockMarketRetrieveError({error})))
-          )
-        ))
+          .retrieveStock(action.payload.symbol)
+          .pipe(
+            map(stock => {
+              return this.store.dispatch(new ActionStockMarketRetrieveSuccess({stock}));
+            }))
+          .pipe(catchError(error => {
+              return of(this.store.dispatch(new ActionStockMarketRetrieveError({error})));
+            }
+          ))
       )
     ).subscribe();
   }
