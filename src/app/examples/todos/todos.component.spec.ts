@@ -10,8 +10,13 @@ import { Store } from '@ngxs/store';
 import { TestStore, TestingModule } from '@testing/utils';
 
 import { TodosComponent } from './todos.component';
-import { TodosStateModel} from '@app/examples/todos/todos.state';
-import {ActionTodosAdd, ActionTodosFilter, ActionTodosRemoveDone, ActionTodosToggle} from '@app/examples/todos/todos.actions';
+import { TodosStateModel } from '@app/examples/todos/todos.state';
+import {
+  ActionTodosAdd,
+  ActionTodosFilter,
+  ActionTodosRemoveDone,
+  ActionTodosToggle
+} from '@app/examples/todos/todos.actions';
 
 describe('TodosComponent', () => {
   let component: TodosComponent;
