@@ -16,8 +16,9 @@ import { StockMarketComponent } from './stock-market.component';
 import { MercadoAcoesComponent } from '@app/examples/mercado-acoes/mercado-acoes.component';
 import { MercadoAcoesStateModel } from '@app/examples/mercado-acoes/mercado-acoes.state';
 import { ActionStockMarketRetrieve } from '@app/examples/mercado-acoes/mercado-acoes.actions';
+import {Store} from '@ngxs/store';
 
-describe('StockMarketComponent', () => {
+describe('MercadoAcoesComponent', () => {
   let component: MercadoAcoesComponent;
   let fixture: ComponentFixture<MercadoAcoesComponent>;
   let store: TestStore<MercadoAcoesStateModel>;
@@ -55,7 +56,7 @@ describe('StockMarketComponent', () => {
       (testStore: TestStore<MercadoAcoesStateModel>) => {
         store = testStore;
         store.setState({ symbol: '', loading: true });
-        fixture = TestBed.createComponent(StockMarketComponent);
+        fixture = TestBed.createComponent(MercadoAcoesComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
       }

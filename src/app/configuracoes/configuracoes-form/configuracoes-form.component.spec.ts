@@ -9,8 +9,6 @@ import {
 } from '@angular/core/testing';
 
 import { TestingModule, TestStore } from '@testing/utils';
-
-import { SettingsComponent } from './settings.component';
 import { ConfiguracoesStateModel } from '@app/configuracoes/configuracoes.state';
 import { ConfiguracoesFormComponent } from '@app/configuracoes';
 import {
@@ -33,7 +31,7 @@ describe('ConfiguracoesFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SettingsComponent],
+      declarations: [ConfiguracoesFormComponent],
       imports: [TestingModule]
     }).compileComponents();
   }));
@@ -50,7 +48,7 @@ describe('ConfiguracoesFormComponent', () => {
         elementsAnimations: true,
         language: 'en'
       });
-      fixture = TestBed.createComponent(SettingsComponent);
+      fixture = TestBed.createComponent(ConfiguracoesFormComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();
     }
