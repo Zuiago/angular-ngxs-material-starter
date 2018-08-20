@@ -1,10 +1,10 @@
-import {NgModule} from '@angular/core';
-import {SharedModule} from '@app/shared';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {TranslateModule} from '@ngx-translate/core';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {RouterTestingModule} from '@angular/router/testing';
-import {Store} from '@ngxs/store';
+import { NgModule } from '@angular/core';
+import { SharedModule } from '@app/shared';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Store } from '@ngxs/store';
 
 export class TestStore<T> {
   private state: BehaviorSubject<T> = new BehaviorSubject(undefined);

@@ -1,22 +1,25 @@
 import browser from 'browser-detect';
-import {OverlayContainer} from '@angular/cdk/overlay';
-import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
-import {ActivationEnd, NavigationEnd, Router} from '@angular/router';
-import {TranslateService} from '@ngx-translate/core';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
+import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
-import {AnimationsService, routeAnimations, TitleService} from '@app/core';
-import {environment as env} from '@env/environment';
+import { AnimationsService, routeAnimations, TitleService } from '@app/core';
+import { environment as env } from '@env/environment';
 
-import {ConfiguracoesStateModel, NIGHT_MODE_THEME} from '@app/configuracoes/configuracoes.state';
+import {
+  ConfiguracoesStateModel,
+  NIGHT_MODE_THEME
+} from '@app/configuracoes/configuracoes.state';
 import {
   ActionConfiguracoesChangeAnimationsPageDisabled,
   ActionConfiguracoesChangeLanguage,
   ActionConfiguracoesPersist
 } from '@app/configuracoes/configuracoes.actions';
-import {Store} from '@ngxs/store';
-import {ActionAuthLogin, ActionAuthLogout} from '@app/core/auth/auth.actions';
+import { Store } from '@ngxs/store';
+import { ActionAuthLogin, ActionAuthLogout } from '@app/core/auth/auth.actions';
 
 @Component({
   selector: 'anms-root',
@@ -87,8 +90,10 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onLanguageSelect({ value: language }) {
-    this.store.dispatch(new ActionConfiguracoesChangeLanguage( language));
-    this.store.dispatch(new ActionConfiguracoesPersist({ configuracoes: this.settings }));
+    this.store.dispatch(new ActionConfiguracoesChangeLanguage(language));
+    this.store.dispatch(
+      new ActionConfiguracoesPersist({ configuracoes: this.settings })
+    );
   }
 
   private subscribeToIsAuthenticated() {
@@ -99,21 +104,20 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private subscribeToConfiguracoes() {
     if (AppComponent.isIEorEdge()) {
-      this.store.dispatch([new ActionConfiguracoesChangeAnimationsPageDisabled(true)]);
+      this.store.dispatch([
+        new ActionConfiguracoesChangeAnimationsPageDisabled(true)
+      ]);
     }
-    this.store
-      .select(state => state.configuracoes)
-      .subscribe(configuracoes => {
-        this.settings = configuracoes;
-        this.setTheme(configuracoes);
-        this.setLanguage(configuracoes);
-        this.animationService.updateRouteAnimationType(
-          configuracoes.pageAnimations,
-          configuracoes.elementsAnimations
-        );
-      });
+    this.store.select(state => state.configuracoes).subscribe(configuracoes => {
+      this.settings = configuracoes;
+      this.setTheme(configuracoes);
+      this.setLanguage(configuracoes);
+      this.animationService.updateRouteAnimationType(
+        configuracoes.pageAnimations,
+        configuracoes.elementsAnimations
+      );
+    });
   }
-
 
   private setTheme(settings: ConfiguracoesStateModel) {
     const { theme, autoNightMode } = settings;
