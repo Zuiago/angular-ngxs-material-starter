@@ -112,4 +112,5 @@ Get started by checking out list of open [issues](https://github.com/Zuiago/angu
 <!-- prettier-ignore -->
 | [<img src="https://avatars0.githubusercontent.com/u/8050831?s=460&v=4" width="100px;"/><br /><sub><b>Iago Andrade</b></sub>](https://medium.com/@iagoquest)<br />[💻](https://github.com/tomastrajan/angular-ngrx-material-starter/commits?author=tomastrajan "Code") 📖 ⚠ 🎨 📝 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| | | | |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
