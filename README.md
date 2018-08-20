@@ -110,7 +110,9 @@ Get started by checking out list of open [issues](https://github.com/Zuiago/angu
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/8050831?s=460&v=4" width="100px;"/><br /><sub><b>Iago Andrade</b></sub>](https://medium.com/@iagoquest)<br />💻 📖 ⚠ 🎨 📝 |  |  |  |  |  |  |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-|  |  |  |  |
+<!--| [<img src="https://avatars0.githubusercontent.com/u/8050831?s=460&v=4" width="100px;"/><br /><sub><b>Iago Andrade</b></sub>](https://medium.com/@iagoquest)<br />💻 📖 ⚠ 🎨 📝 |  |  |  |  |  |  |-->
+<!--| :---: | :---: | :---: | :---: | :---: | :---: | :---: |-->
+<!--|  |  |  |  |-->
+| [<img src="https://avatars0.githubusercontent.com/u/8050831?s=460&v=4" width="100px;"/><br /><sub><b>Iago Andrade</b></sub>](https://medium.com/@iagoquest)<br />💻 📖 ⚠ 🎨 📝 |
+| :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
