@@ -24,13 +24,17 @@ export class ConfiguracoesFormComponent implements OnInit {
   configuracoes: ConfiguracoesStateModel;
 
   themes = [
-    {value: 'DEFAULT-THEME', label: 'Blue'},
-    {value: 'LIGHT-THEME', label: 'Light'},
-    {value: 'NATURE-THEME', label: 'Nature'},
-    {value: 'BLACK-THEME', label: 'Dark'}
+    {value: 'DEFAULT-THEME', label: 'blue'},
+    {value: 'LIGHT-THEME', label: 'light'},
+    {value: 'NATURE-THEME', label: 'nature'},
+    {value: 'BLACK-THEME', label: 'dark'}
   ];
 
-  languages = [{value: 'en', label: 'en'}, {value: 'sk', label: 'sk'}];
+  languages = [
+    { value: 'en', label: 'en' },
+    { value: 'de', label: 'de' },
+    { value: 'sk', label: 'sk' }
+  ];
 
   constructor(private store: Store) {
     this.store.select(state => state.configuracoes).subscribe(configuracoes => {

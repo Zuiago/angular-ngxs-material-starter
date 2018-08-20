@@ -2,7 +2,6 @@ import {Injectable, Injector} from '@angular/core';
 import {Actions, ofActionDispatched} from '@ngxs/store';
 import {CONFIGURACOES_KEY, Persist} from './configuracoes.actions';
 import {LocalStorageService} from '@app/core';
-import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {ActionAuthLogin, ActionAuthLogout} from '@app/core/auth/auth.actions';
 import {AUTH_KEY} from '@app/core/auth/auth.state';

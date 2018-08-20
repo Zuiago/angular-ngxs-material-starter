@@ -7,7 +7,6 @@ import {
 import { By } from '@angular/platform-browser';
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { Store } from '@ngrx/store';
 import { TestingModule, TestStore } from '@testing/utils';
 import { CoreModule } from '@app/core';
 
