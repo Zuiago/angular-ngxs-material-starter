@@ -1,0 +1,9 @@
+$anms-saneago-primary: mat-palette($mat-brown, 700, 300, 900);
+$anms-saneago-accent: mat-palette($mat-deep-purple, 300);
+$anms-saneago-warn: mat-palette($mat-red, 600);
+
+$anms-saneago-theme: mat-light-theme(
+  $anms-saneago-primary,
+  $anms-saneago-accent,
+  $anms-saneago-warn
+);

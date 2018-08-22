@@ -58,3 +58,8 @@
   @include angular-material-theme($anms-nature-theme);
   @include custom-components-theme($anms-nature-theme);
 }
+
+.saneago-theme {
+  @include angular-material-theme($anms-saneago-theme);
+  @include custom-components-theme($anms-saneago-theme);
+}
