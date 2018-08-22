@@ -13,7 +13,7 @@ import * as AuthActions from '../auth.actions';
       [errorMessage]="error$ | async">
     </bc-login-form>
   `,
-  styles: [],
+  styles: []
 })
 export class LoginPageComponent implements OnInit {
   pending$ = this.store.pipe(select(fromAuth.getLoginPagePending));

@@ -1,7 +1,7 @@
 import {
   createSelector,
   createFeatureSelector,
-  ActionReducerMap,
+  ActionReducerMap
 } from '@ngrx/store';
 import * as fromRoot from '../../reducers';
 import * as fromAuth from './auth.reducer';
@@ -18,7 +18,7 @@ export interface State extends fromRoot.State {
 
 export const reducers: ActionReducerMap<AuthState> = {
   status: fromAuth.reducer,
-  loginPage: fromLoginPage.reducer,
+  loginPage: fromLoginPage.reducer
 };
 
 export const selectAuthState = createFeatureSelector<State, AuthState>('auth');

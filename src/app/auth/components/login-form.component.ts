@@ -64,8 +64,8 @@ import { Authenticate } from '../models/user';
         flex-direction: row;
         justify-content: flex-end;
       }
-    `,
-  ],
+    `
+  ]
 })
 export class LoginFormComponent implements OnInit {
   @Input()
@@ -83,7 +83,7 @@ export class LoginFormComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
     username: new FormControl(''),
-    password: new FormControl(''),
+    password: new FormControl('')
   });
 
   constructor() {}

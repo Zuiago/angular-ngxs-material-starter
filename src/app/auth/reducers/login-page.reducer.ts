@@ -7,7 +7,7 @@ export interface State {
 
 export const initialState: State = {
   error: null,
-  pending: false,
+  pending: false
 };
 
 export function reducer(state = initialState, action: AuthActionsUnion): State {
@@ -16,7 +16,7 @@ export function reducer(state = initialState, action: AuthActionsUnion): State {
       return {
         ...state,
         error: null,
-        pending: true,
+        pending: true
       };
     }
 
@@ -24,7 +24,7 @@ export function reducer(state = initialState, action: AuthActionsUnion): State {
       return {
         ...state,
         error: null,
-        pending: false,
+        pending: false
       };
     }
 
@@ -32,7 +32,7 @@ export function reducer(state = initialState, action: AuthActionsUnion): State {
       return {
         ...state,
         error: action.payload,
-        pending: false,
+        pending: false
       };
     }
 

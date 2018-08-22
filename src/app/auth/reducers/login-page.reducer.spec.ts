@@ -1,11 +1,6 @@
 import { reducer } from './login-page.reducer';
 import * as fromLoginPage from './login-page.reducer';
-import {
-  Login,
-  LoginSuccess,
-  LoginFailure,
-  Logout,
-} from '../auth.actions';
+import { Login, LoginSuccess, LoginFailure, Logout } from '../auth.actions';
 import { Authenticate, User } from '../models/user';
 
 describe('LoginPageReducer', () => {
@@ -26,7 +21,7 @@ describe('LoginPageReducer', () => {
 
       const expectedResult = {
         error: null,
-        pending: true,
+        pending: true
       };
 
       const result = reducer(fromLoginPage.initialState, createAction);
@@ -42,7 +37,7 @@ describe('LoginPageReducer', () => {
 
       const expectedResult = {
         error: null,
-        pending: false,
+        pending: false
       };
 
       const result = reducer(fromLoginPage.initialState, createAction);
@@ -58,7 +53,7 @@ describe('LoginPageReducer', () => {
 
       const expectedResult = {
         error: error,
-        pending: false,
+        pending: false
       };
 
       const result = reducer(fromLoginPage.initialState, createAction);

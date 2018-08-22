@@ -15,10 +15,10 @@ describe('Auth Guard', () => {
       imports: [
         StoreModule.forRoot({
           ...fromRoot.reducers,
-          auth: combineReducers(fromAuth.reducers),
-        }),
+          auth: combineReducers(fromAuth.reducers)
+        })
       ],
-      providers: [AuthGuard],
+      providers: [AuthGuard]
     });
 
     store = TestBed.get(Store);

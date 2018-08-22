@@ -12,7 +12,7 @@ describe('Login Page', () => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
       declarations: [LoginFormComponent],
-      schemas: [NO_ERRORS_SCHEMA],
+      schemas: [NO_ERRORS_SCHEMA]
     });
 
     fixture = TestBed.createComponent(LoginFormComponent);
@@ -56,7 +56,7 @@ describe('Login Page', () => {
   it('should emit an event if the form is valid when submitted', () => {
     const credentials = {
       username: 'user',
-      password: 'pass',
+      password: 'pass'
     };
     instance.form.setValue(credentials);
 

@@ -18,13 +18,13 @@ describe('Login Page', () => {
       imports: [
         NoopAnimationsModule,
         StoreModule.forRoot({
-          auth: combineReducers(fromAuth.reducers),
+          auth: combineReducers(fromAuth.reducers)
         }),
         MatInputModule,
         MatCardModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule
       ],
-      declarations: [LoginPageComponent, LoginFormComponent],
+      declarations: [LoginPageComponent, LoginFormComponent]
     });
 
     fixture = TestBed.createComponent(LoginPageComponent);

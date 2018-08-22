@@ -8,7 +8,7 @@ export interface State {
 
 export const initialState: State = {
   loggedIn: false,
-  user: null,
+  user: null
 };
 
 export function reducer(state = initialState, action: AuthActionsUnion): State {
@@ -17,7 +17,7 @@ export function reducer(state = initialState, action: AuthActionsUnion): State {
       return {
         ...state,
         loggedIn: true,
-        user: action.payload.user,
+        user: action.payload.user
       };
     }
 

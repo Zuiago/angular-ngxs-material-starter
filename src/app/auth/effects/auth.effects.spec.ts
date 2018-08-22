@@ -9,7 +9,7 @@ import {
   LoginFailure,
   LoginRedirect,
   LoginSuccess,
-  Logout,
+  Logout
 } from '../auth.actions';
 import { Authenticate, User } from '../models/user';
 import { AuthService } from '../services/auth.service';
@@ -27,14 +27,14 @@ describe('AuthEffects', () => {
         AuthEffects,
         {
           provide: AuthService,
-          useValue: { login: jest.fn() },
+          useValue: { login: jest.fn() }
         },
         provideMockActions(() => actions$),
         {
           provide: Router,
-          useValue: { navigate: jest.fn() },
-        },
-      ],
+          useValue: { navigate: jest.fn() }
+        }
+      ]
     });
 
     effects = TestBed.get(AuthEffects);

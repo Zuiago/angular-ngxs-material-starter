@@ -41,7 +41,7 @@ describe('AuthReducer', () => {
 
       const expectedResult = {
         loggedIn: true,
-        user: { name: 'test' },
+        user: { name: 'test' }
       };
 
       const result = reducer(fromAuth.initialState, createAction);
@@ -54,7 +54,7 @@ describe('AuthReducer', () => {
     it('should logout a user', () => {
       const initialState = {
         loggedIn: true,
-        user: { name: 'test' },
+        user: { name: 'test' }
       } as fromAuth.State;
       const createAction = new Logout();
 
