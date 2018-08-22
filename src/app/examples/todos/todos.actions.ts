@@ -1,5 +1,5 @@
-import {ConfiguracoesStateModel} from './configuracoes.state';
-import {Todo, TodosFilter} from '@app/examples/todos/todos.state';
+import { ConfiguracoesStateModel } from './configuracoes.state';
+import { Todo, TodosFilter } from '@app/examples/todos/todos.state';
 
 export enum TodosActionTypes {
   ADD = '[Todos] Add',

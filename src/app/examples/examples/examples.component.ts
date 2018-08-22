@@ -1,11 +1,11 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {ActivationEnd, Router} from '@angular/router';
-import {filter, map, takeUntil} from 'rxjs/operators';
-import {Subject} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { ActivationEnd, Router } from '@angular/router';
+import { filter, map, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
-import {routeAnimations, TitleService} from '@app/core';
-import {Store} from '@ngxs/store';
+import { routeAnimations, TitleService } from '@app/core';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'anms-examples',
@@ -17,17 +17,18 @@ export class ExamplesComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
 
   examples = [
-    {link: 'todos', label: 'anms.examples.menu.todos'},
-    {link: 'stock-market', label: 'anms.examples.menu.stocks'},
-    {link: 'theming', label: 'anms.examples.menu.theming'},
-    {link: 'authenticated', label: 'anms.examples.menu.auth'}
+    { link: 'todos', label: 'anms.examples.menu.todos' },
+    { link: 'stock-market', label: 'anms.examples.menu.stocks' },
+    { link: 'theming', label: 'anms.examples.menu.theming' },
+    { link: 'authenticated', label: 'anms.examples.menu.auth' }
   ];
 
-  constructor(private store: Store,
-              private router: Router,
-              private titleService: TitleService,
-              private translate: TranslateService) {
-  }
+  constructor(
+    private store: Store,
+    private router: Router,
+    private titleService: TitleService,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit(): void {
     this.translate.setDefaultLang('en');
@@ -41,11 +42,9 @@ export class ExamplesComponent implements OnInit, OnDestroy {
   }
 
   private subscribeToConfiguracoes() {
-    this.store
-      .select(state => state.configuracoes)
-      .subscribe(configuracoes => {
-        this.translate.use(configuracoes.language);
-      });
+    this.store.select(state => state.configuracoes).subscribe(configuracoes => {
+      this.translate.use(configuracoes.language);
+    });
   }
 
   private subscribeToRouterEvents() {

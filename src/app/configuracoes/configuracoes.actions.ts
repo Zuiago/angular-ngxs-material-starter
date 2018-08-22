@@ -1,13 +1,13 @@
-import {ConfiguracoesStateModel} from './configuracoes.state';
+import { ConfiguracoesStateModel } from './configuracoes.state';
 
 export enum ConfiguracoesActionTypes {
-    CHANGE_LANGUAGE = '[Configuracoes] Change Language',
-    CHANGE_THEME = '[Configuracoes] Change Theme',
-    CHANGE_AUTO_NIGHT_AUTO_MODE = '[Configuracoes] Change Auto Night Mode',
-    CHANGE_ANIMATIONS_PAGE = '[Configuracoes] Change Animations Page',
-    CHANGE_ANIMATIONS_PAGE_DISABLED = '[Configuracoes] Change Animations Page Disabled',
-    CHANGE_ANIMATIONS_ELEMENTS = '[Configuracoes] Change Animations Elements',
-    PERSIST = '[Configuracoes] Persist'
+  CHANGE_LANGUAGE = '[Configuracoes] Change Language',
+  CHANGE_THEME = '[Configuracoes] Change Theme',
+  CHANGE_AUTO_NIGHT_AUTO_MODE = '[Configuracoes] Change Auto Night Mode',
+  CHANGE_ANIMATIONS_PAGE = '[Configuracoes] Change Animations Page',
+  CHANGE_ANIMATIONS_PAGE_DISABLED = '[Configuracoes] Change Animations Page Disabled',
+  CHANGE_ANIMATIONS_ELEMENTS = '[Configuracoes] Change Animations Elements',
+  PERSIST = '[Configuracoes] Persist'
 }
 
 export type Language = 'en' | 'sk';

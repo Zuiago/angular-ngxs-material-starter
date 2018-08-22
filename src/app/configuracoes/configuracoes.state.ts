@@ -1,10 +1,10 @@
-import {Action, NgxsOnInit, State, StateContext} from '@ngxs/store';
+import { Action, NgxsOnInit, State, StateContext } from '@ngxs/store';
 import {
   ActionConfiguracoesChangeAutoNightMode,
   ActionConfiguracoesChangeLanguage,
-  ActionConfiguracoesChangeTheme,
+  ActionConfiguracoesChangeTheme
 } from './configuracoes.actions';
-import {LocalStorageService} from '@app/core';
+import { LocalStorageService } from '@app/core';
 import {
   ActionConfiguracoesChangeAnimationsElements,
   ActionConfiguracoesChangeAnimationsPage,
@@ -34,9 +34,7 @@ export interface ConfiguracoesStateModel {
     elementsAnimations: true
   }
 })
-
 export class ConfiguracoesState implements NgxsOnInit {
-
   ngxsOnInit(ctx: StateContext<ConfiguracoesStateModel>) {
     const initialState = LocalStorageService.loadInitialState();
     if (initialState && initialState.configuracoes) {
@@ -45,33 +43,50 @@ export class ConfiguracoesState implements NgxsOnInit {
   }
 
   @Action(ActionConfiguracoesChangeLanguage)
-  setLanguage({patchState}: StateContext<ConfiguracoesStateModel>, {payload}: ActionConfiguracoesChangeLanguage) {
-    patchState({language: payload});
+  setLanguage(
+    { patchState }: StateContext<ConfiguracoesStateModel>,
+    { payload }: ActionConfiguracoesChangeLanguage
+  ) {
+    patchState({ language: payload });
   }
 
   @Action(ActionConfiguracoesChangeTheme)
-  setTheme({patchState}: StateContext<ConfiguracoesStateModel>, {payload}: ActionConfiguracoesChangeTheme) {
-    patchState({theme: payload});
+  setTheme(
+    { patchState }: StateContext<ConfiguracoesStateModel>,
+    { payload }: ActionConfiguracoesChangeTheme
+  ) {
+    patchState({ theme: payload });
   }
 
   @Action(ActionConfiguracoesChangeAutoNightMode)
-  setAutoNigthMode({patchState}: StateContext<ConfiguracoesStateModel>, {payload}: ActionConfiguracoesChangeAutoNightMode) {
-    patchState({autoNightMode: payload});
+  setAutoNigthMode(
+    { patchState }: StateContext<ConfiguracoesStateModel>,
+    { payload }: ActionConfiguracoesChangeAutoNightMode
+  ) {
+    patchState({ autoNightMode: payload });
   }
 
   @Action(ActionConfiguracoesChangeAnimationsPage)
-  setAnimationsPage({patchState}: StateContext<ConfiguracoesStateModel>, {payload}: ActionConfiguracoesChangeAnimationsPage) {
-    patchState({pageAnimations: payload});
+  setAnimationsPage(
+    { patchState }: StateContext<ConfiguracoesStateModel>,
+    { payload }: ActionConfiguracoesChangeAnimationsPage
+  ) {
+    patchState({ pageAnimations: payload });
   }
 
   @Action(ActionConfiguracoesChangeAnimationsElements)
-  setAnimationsElements({patchState}: StateContext<ConfiguracoesStateModel>, {payload}: ActionConfiguracoesChangeAnimationsElements) {
-    patchState({pageAnimationsDisabled: payload});
+  setAnimationsElements(
+    { patchState }: StateContext<ConfiguracoesStateModel>,
+    { payload }: ActionConfiguracoesChangeAnimationsElements
+  ) {
+    patchState({ pageAnimationsDisabled: payload });
   }
 
   @Action(ActionConfiguracoesChangeAnimationsPageDisabled)
-  setAnimationsPageDisabled({patchState}: StateContext<ConfiguracoesStateModel>,
-                            {payload}: ActionConfiguracoesChangeAnimationsPageDisabled) {
+  setAnimationsPageDisabled(
+    { patchState }: StateContext<ConfiguracoesStateModel>,
+    { payload }: ActionConfiguracoesChangeAnimationsPageDisabled
+  ) {
     patchState({
       pageAnimations: false,
       pageAnimationsDisabled: payload

@@ -1,9 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
-import {Store} from '@ngxs/store';
-import {ActionStockMarketRetrieve} from '@app/examples/mercado-acoes/mercado-acoes.actions';
+import { Store } from '@ngxs/store';
+import { ActionStockMarketRetrieve } from '@app/examples/mercado-acoes/mercado-acoes.actions';
 
 @Component({
   selector: 'anms-stock-market',
@@ -16,8 +16,7 @@ export class MercadoAcoesComponent implements OnInit, OnDestroy {
   initialized;
   stocks;
 
-  constructor(public store: Store) {
-  }
+  constructor(public store: Store) {}
 
   ngOnInit() {
     this.initialized = false;
@@ -30,7 +29,7 @@ export class MercadoAcoesComponent implements OnInit, OnDestroy {
         if (!this.initialized) {
           this.initialized = true;
           this.store.dispatch(
-            new ActionStockMarketRetrieve({symbol: stocks.symbol})
+            new ActionStockMarketRetrieve({ symbol: stocks.symbol })
           );
         }
       });
@@ -55,6 +54,6 @@ export class MercadoAcoesComponent implements OnInit, OnDestroy {
   }
 
   onSymbolChange(symbol: string) {
-    this.store.dispatch(new ActionStockMarketRetrieve({symbol}));
+    this.store.dispatch(new ActionStockMarketRetrieve({ symbol }));
   }
 }

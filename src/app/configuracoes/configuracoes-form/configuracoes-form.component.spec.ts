@@ -29,16 +29,17 @@ describe('ConfiguracoesFormComponent', () => {
   const getSelectOptions = () =>
     fixture.debugElement.queryAll(By.css('mat-option'));
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ConfiguracoesFormComponent],
-      imports: [TestingModule]
-    }).compileComponents();
-  }));
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [ConfiguracoesFormComponent],
+        imports: [TestingModule]
+      }).compileComponents();
+    })
+  );
 
-  beforeEach(inject(
-    [Store],
-    (testStore: TestStore<ConfiguracoesStateModel>) => {
+  beforeEach(
+    inject([Store], (testStore: TestStore<ConfiguracoesStateModel>) => {
       store = testStore;
       store.setState({
         theme: 'DEFAULT-THEME',
@@ -51,8 +52,8 @@ describe('ConfiguracoesFormComponent', () => {
       fixture = TestBed.createComponent(ConfiguracoesFormComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();
-    }
-  ));
+    })
+  );
 
   it('should be created', () => {
     expect(component).toBeTruthy();

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Store} from '@ngxs/store';
-import {ConfiguracoesStateModel} from '../configuracoes.state';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { ConfiguracoesStateModel } from '../configuracoes.state';
 import {
   ActionConfiguracoesChangeAnimationsElements,
   ActionConfiguracoesChangeAnimationsPage,
@@ -16,7 +16,6 @@ import {
   styles: []
 })
 export class ConfiguracoesFormComponent implements OnInit {
-
   // // Variável que abriga o valor Observable do objeto
   // @Select(ConfiguracoesState) configuracoes$: Observable<ConfiguracoesStateModel>;
 
@@ -24,10 +23,10 @@ export class ConfiguracoesFormComponent implements OnInit {
   configuracoes: ConfiguracoesStateModel;
 
   themes = [
-    {value: 'DEFAULT-THEME', label: 'blue'},
-    {value: 'LIGHT-THEME', label: 'light'},
-    {value: 'NATURE-THEME', label: 'nature'},
-    {value: 'BLACK-THEME', label: 'dark'}
+    { value: 'DEFAULT-THEME', label: 'blue' },
+    { value: 'LIGHT-THEME', label: 'light' },
+    { value: 'NATURE-THEME', label: 'nature' },
+    { value: 'BLACK-THEME', label: 'dark' }
   ];
 
   languages = [
@@ -42,38 +41,46 @@ export class ConfiguracoesFormComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  onLanguageSelect({value: language}) {
+  onLanguageSelect({ value: language }) {
     this.store.dispatch(new ActionConfiguracoesChangeLanguage(language));
-    this.store.dispatch(new ActionConfiguracoesPersist({configuracoes: this.configuracoes}));
+    this.store.dispatch(
+      new ActionConfiguracoesPersist({ configuracoes: this.configuracoes })
+    );
   }
 
-  onThemeSelect({value: theme}) {
+  onThemeSelect({ value: theme }) {
     this.store.dispatch([new ActionConfiguracoesChangeTheme(theme)]);
-    this.store.dispatch([new ActionConfiguracoesPersist({configuracoes: this.configuracoes})]);
+    this.store.dispatch([
+      new ActionConfiguracoesPersist({ configuracoes: this.configuracoes })
+    ]);
   }
 
-  onAutoNightModeToggle({checked: autoNightMode}) {
+  onAutoNightModeToggle({ checked: autoNightMode }) {
     this.store.dispatch(
       new ActionConfiguracoesChangeAutoNightMode(autoNightMode)
     );
-    this.store.dispatch(new ActionConfiguracoesPersist({configuracoes: this.configuracoes}));
+    this.store.dispatch(
+      new ActionConfiguracoesPersist({ configuracoes: this.configuracoes })
+    );
   }
 
-  onPageAnimationsToggle({checked: pageAnimations}) {
+  onPageAnimationsToggle({ checked: pageAnimations }) {
     this.store.dispatch(
       new ActionConfiguracoesChangeAnimationsPage(pageAnimations)
     );
-    this.store.dispatch(new ActionConfiguracoesPersist({configuracoes: this.configuracoes}));
+    this.store.dispatch(
+      new ActionConfiguracoesPersist({ configuracoes: this.configuracoes })
+    );
   }
 
-  onElementsAnimationsToggle({checked: elementsAnimations}) {
+  onElementsAnimationsToggle({ checked: elementsAnimations }) {
     this.store.dispatch(
       new ActionConfiguracoesChangeAnimationsElements(elementsAnimations)
     );
-    this.store.dispatch(new ActionConfiguracoesPersist({configuracoes: this.configuracoes}));
+    this.store.dispatch(
+      new ActionConfiguracoesPersist({ configuracoes: this.configuracoes })
+    );
   }
-
 }

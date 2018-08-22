@@ -14,9 +14,12 @@ import { ExamplesModule } from '../examples.module';
 
 import { StockMarketComponent } from './stock-market.component';
 import { MercadoAcoesComponent } from '@app/examples/mercado-acoes/mercado-acoes.component';
-import { MercadoAcoesStateModel } from '@app/examples/mercado-acoes/mercado-acoes.state';
+import {
+  MercadoAcoesState,
+  MercadoAcoesStateModel
+} from '@app/examples/mercado-acoes/mercado-acoes.state';
 import { ActionStockMarketRetrieve } from '@app/examples/mercado-acoes/mercado-acoes.actions';
-import {Store} from '@ngxs/store';
+import { NgxsModule, Store } from '@ngxs/store';
 
 describe('MercadoAcoesComponent', () => {
   let component: MercadoAcoesComponent;
@@ -44,23 +47,29 @@ describe('MercadoAcoesComponent', () => {
     );
 
   describe('given component booted', () => {
-    beforeEach(async(() => {
-      TestBed.configureTestingModule({
-        imports: [TestingModule, CoreModule, ExamplesModule],
-        providers: [{ provide: Store, useClass: TestStore }]
-      }).compileComponents();
-    }));
+    beforeEach(
+      async(() => {
+        TestBed.configureTestingModule({
+          imports: [
+            TestingModule,
+            CoreModule,
+            ExamplesModule,
+            NgxsModule.forFeature([MercadoAcoesState])
+          ],
+          providers: []
+        }).compileComponents();
+      })
+    );
 
-    beforeEach(inject(
-      [Store],
-      (testStore: TestStore<MercadoAcoesStateModel>) => {
+    beforeEach(
+      inject([Store], (testStore: TestStore<MercadoAcoesStateModel>) => {
         store = testStore;
         store.setState({ symbol: '', loading: true });
         fixture = TestBed.createComponent(MercadoAcoesComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
-      }
-    ));
+      })
+    );
 
     it('should be created', () => {
       expect(component).toBeTruthy();

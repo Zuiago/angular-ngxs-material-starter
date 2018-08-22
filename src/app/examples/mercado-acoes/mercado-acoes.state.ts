@@ -1,10 +1,10 @@
-import {HttpErrorResponse} from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import {
   ActionStockMarketRetrieve,
   ActionStockMarketRetrieveError,
   ActionStockMarketRetrieveSuccess
 } from '@app/examples/mercado-acoes/mercado-acoes.actions';
-import {Action, State, StateContext} from '@ngxs/store';
+import { Action, State, StateContext } from '@ngxs/store';
 
 export const STOCK_MARKET_KEY = 'EXAMPLES.STOCKS';
 
@@ -17,11 +17,12 @@ export const initialState: MercadoAcoesStateModel = {
   name: 'mercadoacoes',
   defaults: initialState
 })
-
 export class MercadoAcoesState {
-
   @Action(ActionStockMarketRetrieve)
-  retrieve({patchState}: StateContext<MercadoAcoesStateModel>, {payload}: ActionStockMarketRetrieve) {
+  retrieve(
+    { patchState }: StateContext<MercadoAcoesStateModel>,
+    { payload }: ActionStockMarketRetrieve
+  ) {
     patchState({
       loading: true,
       stock: null,
@@ -31,17 +32,22 @@ export class MercadoAcoesState {
   }
 
   @Action(ActionStockMarketRetrieveSuccess)
-  retrieveSuccess({patchState}: StateContext<MercadoAcoesStateModel>, {payload}: ActionStockMarketRetrieveSuccess) {
+  retrieveSuccess(
+    { patchState }: StateContext<MercadoAcoesStateModel>,
+    { payload }: ActionStockMarketRetrieveSuccess
+  ) {
     patchState({
       loading: false,
       stock: payload.stock,
-      error: null,
+      error: null
     });
   }
 
   @Action(ActionStockMarketRetrieveError)
-  retrieveError({patchState}: StateContext<MercadoAcoesStateModel>,
-                {payload}: ActionStockMarketRetrieveError) {
+  retrieveError(
+    { patchState }: StateContext<MercadoAcoesStateModel>,
+    { payload }: ActionStockMarketRetrieveError
+  ) {
     patchState({
       loading: false,
       stock: null,

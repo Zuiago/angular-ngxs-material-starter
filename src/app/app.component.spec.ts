@@ -6,6 +6,9 @@ import { SharedModule } from '@app/shared';
 import { CoreModule } from '@app/core';
 
 import { AppComponent } from './app.component';
+import { NgxsModule } from '@ngxs/store';
+import { ConfiguracoesState } from '@app/configuracoes/configuracoes.state';
+import { AuthState } from '@app/core/auth/auth.state';
 
 describe('AppComponent', () => {
   beforeEach(
@@ -13,6 +16,7 @@ describe('AppComponent', () => {
       TestBed.configureTestingModule({
         imports: [
           NoopAnimationsModule,
+          NgxsModule.forRoot([ConfiguracoesState, AuthState]),
           RouterTestingModule,
           SharedModule,
           CoreModule

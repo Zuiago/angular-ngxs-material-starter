@@ -35,7 +35,8 @@ describe('BigInputActionComponent', () => {
     TestBed.configureTestingModule({
       declarations: [HostComponent],
       imports: [SharedModule]
-    }));
+    })
+  );
 
   it('should be created', () => {
     const template = '<anms-big-input-action></anms-big-input-action>';
