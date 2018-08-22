@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="main-heading">{{ 'anms.examples.forms.title' | translate }}</h1>
+    </div>
+  </div>
+  <!--Directivas de validações-->
+  <hr>
+
+  <form novalidate autocomplete="off" [formGroup]="formulario">
+    <div class="row">
+      <div class="col-md">
+        <mat-form-field>
+          <input matInput placeholder="Nome Completo" type="text" formControlName="fullName">
+          <mat-error *ngIf="formulario.controls['fullName'].hasError('required')">
+            Campo obrigatório
+          </mat-error>
+          <mat-error>
+            {{errors.fullName}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md">
+        <mat-form-field>
+          <input matInput placeholder="Email1" formControlName="emailTipo1"
+                 [errorStateMatcher]="matcher">
+          <mat-hint>Errors appear instantly!</mat-hint>
+          <mat-error *ngIf="formulario.controls['emailTipo1'].hasError('email') && !formulario.controls['emailTipo1'].hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="formulario.controls['emailTipo1'].hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md">
+        <mat-form-field>
+          <input matInput placeholder="Email2" formControlName="emailTipo2"
+                 [errorStateMatcher]="matcher">
+          <mat-hint>Errors appear instantly!</mat-hint>
+          <mat-error *ngIf="formulario.controls['emailTipo2'].invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md">
+        <mat-form-field>
+          <input formControlName="cpf"
+                 BrCpfMask
+                 [errorStateMatcher]="matcher"
+                 matInput
+                 placeholder="Cpf"
+                 maxlength="150">
+          <mat-error *ngIf="formulario.controls['cpf'].hasError('required')">
+            Campo obrigatório
+          </mat-error>
+          <mat-error *ngIf="formulario.controls['cpf'].hasError('cpfPattern')">
+            {{ 'mensagem.M003' | translate:{registro: 'Cpf'} }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>

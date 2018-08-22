@@ -1,4 +1,5 @@
 {
+  "anms.examples.menu.forms": "Forms",
   "anms.examples.menu.todos": "Todos",
   "anms.examples.menu.stocks": "Stocks",
   "anms.examples.menu.theming": "Theming",
@@ -23,6 +24,7 @@
   "anms.examples.todos.filter.description": "Displaying",
   "anms.examples.todos.filter.items": "todos",
   "anms.examples.todos.filter.item": "todo",
+  "anms.examples.forms.title": "Forms",
   "anms.examples.stocks.title": "Stock market",
   "anms.examples.stocks.symbol": "Stock symbol",
   "anms.examples.stocks.description":

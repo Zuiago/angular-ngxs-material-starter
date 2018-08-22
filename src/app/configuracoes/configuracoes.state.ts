@@ -26,7 +26,7 @@ export interface ConfiguracoesStateModel {
 @State<ConfiguracoesStateModel>({
   name: 'configuracoes',
   defaults: {
-    language: 'en',
+    language: 'pt-br',
     theme: 'DEFAULT-THEME',
     autoNightMode: false,
     pageAnimations: true,

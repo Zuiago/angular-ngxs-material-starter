@@ -16,6 +16,7 @@ import { MercadoAcoesComponent } from '@app/examples/mercado-acoes/mercado-acoes
 import { NgxsModule } from '@ngxs/store';
 import { MercadoAcoesState } from '@app/examples/mercado-acoes/mercado-acoes.state';
 import { TodosState } from '@app/examples/todos/todos.state';
+import {FormsComponent} from '@app/examples/forms/forms.component';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { TodosState } from '@app/examples/todos/todos.state';
   ],
   declarations: [
     ExamplesComponent,
+    FormsComponent,
     TodosComponent,
     MercadoAcoesComponent,
     ParentComponent,

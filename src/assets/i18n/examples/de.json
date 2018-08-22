@@ -1,4 +1,5 @@
 {
+  "anms.examples.menu.forms": "Forms",
   "anms.examples.menu.todos": "Aufgabenliste",
   "anms.examples.menu.stocks": "Börse",
   "anms.examples.menu.theming": "Theming",
@@ -23,6 +24,7 @@
   "anms.examples.todos.filter.description": "Anzeigen",
   "anms.examples.todos.filter.items": "Aufgaben",
   "anms.examples.todos.filter.item": "Aufgabe",
+  "anms.examples.forms.title": "Forms",
   "anms.examples.stocks.title": "Börse",
   "anms.examples.stocks.symbol": "Aktiensymbol",
   "anms.examples.stocks.description":

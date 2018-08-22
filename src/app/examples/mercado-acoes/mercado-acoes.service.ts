@@ -8,7 +8,8 @@ const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
 
 @Injectable()
 export class MercadoAcoesService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+  }
 
   retrieveStock(symbol: string): Observable<Stock> {
     return this.httpClient

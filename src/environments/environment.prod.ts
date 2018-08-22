@@ -6,6 +6,7 @@ export const environment = {
   production: true,
   test: false,
   i18nPrefix: '/angular-ngxs-material-starter',
+  URL_SERVER_API: 'https://cors-anywhere.herokuapp.com',
   versions: {
     app: packageJson.version,
     angular: packageJson.dependencies['@angular/core'],

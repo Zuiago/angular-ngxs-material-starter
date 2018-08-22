@@ -17,10 +17,10 @@ import { ConfiguracoesState } from '@app/configuracoes/configuracoes.state';
 import { HandlerModule } from '@app/core/handler.module';
 import { AuthState } from '@app/core/auth/auth.state';
 import { ConfiguracoesHandler } from '@app/configuracoes/configuracoes.handler';
-import { AuthHandler } from '@app/core/auth/auth.handler';
 import { MercadoAcoesHandler } from '@app/examples/mercado-acoes/mercado-acoes.handler';
 import { TodosHandler } from '@app/examples/todos/todos.handler';
 import { MercadoAcoesService } from '@app/examples/mercado-acoes/mercado-acoes.service';
+import { AuthHandler } from '@app/core/auth/auth.handler';
 
 @NgModule({
   imports: [
@@ -52,6 +52,7 @@ import { MercadoAcoesService } from '@app/examples/mercado-acoes/mercado-acoes.s
   ],
   declarations: [AppComponent],
   providers: [MercadoAcoesService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {}

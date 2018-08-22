@@ -33,7 +33,8 @@ export class ConfiguracoesFormComponent implements OnInit {
   languages = [
     { value: 'en', label: 'en' },
     { value: 'de', label: 'de' },
-    { value: 'sk', label: 'sk' }
+    { value: 'sk', label: 'sk' },
+    { value: 'pt-br', label: 'pt-br'}
   ];
 
   constructor(private store: Store) {

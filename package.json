@@ -53,7 +53,9 @@
     "rxjs": "^6.2.2",
     "uuid": "^3.1.0",
     "web-animations-js": "^2.2.5",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "br-validations": "0.2.4",
+    "string-mask": "0.3.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",

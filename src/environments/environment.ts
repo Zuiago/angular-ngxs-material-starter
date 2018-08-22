@@ -11,6 +11,7 @@ export const environment = {
   production: false,
   test: false,
   i18nPrefix: '',
+  URL_SERVER_API: 'https://cors-anywhere.herokuapp.com',
   versions: {
     app: packageJson.version,
     angular: packageJson.dependencies['@angular/core'],
