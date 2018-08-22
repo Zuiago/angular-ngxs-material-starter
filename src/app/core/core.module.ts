@@ -53,7 +53,6 @@ import {UtilFunction} from '@app/core/utils/util.function';
     /*Directivas*/
     LowerCaseDirective,
     UpperCaseDirective,
-    CpfDirective,
     PhoneDirective
   ],
   providers: [
@@ -76,7 +75,6 @@ import {UtilFunction} from '@app/core/utils/util.function';
     /*Directivas*/
     LowerCaseDirective,
     UpperCaseDirective,
-    CpfDirective,
     PhoneDirective
   ]
 })
