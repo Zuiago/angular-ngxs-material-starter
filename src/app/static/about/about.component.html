@@ -72,3 +72,33 @@
     <img [src]="releaseButler" alt="Release Butler tweet example">
   </div>
 </div>
+
+<div class="container">
+  <div class="contributors" [ngClass]="routeAnimationsElements">
+    <h2>{{ 'anms.about.contributors' | translate }}</h2>
+    <p>{{ 'anms.about.contributors.description1' | translate }}</p>
+    <p>{{ 'anms.about.contributors.description2' | translate }}</p>
+    <p>
+      {{ 'anms.about.contributors.description3' | translate }}
+      <a href="https://github.com/tomastrajan/angular-ngrx-material-starter/issues"
+         target="_blank">{{'anms.about.contributors.issues' | translate}}</a>
+      {{ 'anms.about.contributors.description4' | translate }}
+      <a
+        href="https://github.com/tomastrajan/angular-ngrx-material-starter/blob/master/CONTRIBUTING.md"
+        target="_blank">{{'anms.about.contributors.guide' | translate}}</a>
+      ...
+    </p>
+
+    <div class="contributors-wrapper">
+
+      <!-- ALL-CONTRIBUTORS-LIST:START -->
+      <a class="contributor" href="https://zuiago.github.io/" target="_blank">
+        <img src="https://avatars0.githubusercontent.com/u/8050831?s=460&v=4">
+        <span>Iago Andrade</span>
+      </a>
+      <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+    </div>
+  </div>
+</div>
+

@@ -9,7 +9,7 @@ import { StockMarketComponent } from './stock-market/stock-market.component';
 import { ParentComponent } from './theming/parent/parent.component';
 import { AuthenticatedComponent } from './authenticated/authenticated.component';
 import { MercadoAcoesComponent } from '@app/examples/mercado-acoes/mercado-acoes.component';
-import {FormsComponent} from '@app/examples/forms/forms.component';
+import { FormsComponent } from '@app/examples/forms/forms.component';
 
 const routes: Routes = [
   {

@@ -4,7 +4,8 @@ import { CONFIGURACOES_KEY, Persist } from './configuracoes.actions';
 import { LocalStorageService } from '@app/core';
 import { Router } from '@angular/router';
 import { ActionAuthLogin, ActionAuthLogout } from '@app/core/auth/auth.actions';
-import { AUTH_KEY } from '@app/core/auth/auth.state';
+
+export const AUTH_KEY = 'AUTH';
 
 @Injectable()
 export class AuthHandler {

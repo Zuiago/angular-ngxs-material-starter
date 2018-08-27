@@ -16,8 +16,8 @@ import { MercadoAcoesComponent } from '@app/examples/mercado-acoes/mercado-acoes
 import { NgxsModule } from '@ngxs/store';
 import { MercadoAcoesState } from '@app/examples/mercado-acoes/mercado-acoes.state';
 import { TodosState } from '@app/examples/todos/todos.state';
-import {FormsComponent} from '@app/examples/forms/forms.component';
-import {CpfDirective} from '@app/core/directivas/cpf.directive';
+import { FormsComponent } from '@app/examples/forms/forms.component';
+import { CpfDirective } from '@app/core/directivas/cpf.directive';
 
 @NgModule({
   imports: [

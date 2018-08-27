@@ -9,10 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 import { AnimationsService, routeAnimations, TitleService } from '@app/core';
 import { environment as env } from '@env/environment';
 
-import {
-  ConfiguracoesStateModel,
-  NIGHT_MODE_THEME
-} from '@app/configuracoes/configuracoes.state';
+import {} from '@app/configuracoes/configuracoes.state';
 import {
   ActionConfiguracoesChangeAnimationsPageDisabled,
   ActionConfiguracoesChangeLanguage,
@@ -20,6 +17,10 @@ import {
 } from '@app/configuracoes/configuracoes.actions';
 import { Store } from '@ngxs/store';
 import { ActionAuthLogin, ActionAuthLogout } from '@app/core/auth/auth.actions';
+import {
+  ConfiguracoesStateModel,
+  NIGHT_MODE_THEME
+} from '@app/configuracoes/configuracoes.model';
 
 @Component({
   selector: 'anms-root',
@@ -37,7 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
   version = env.versions.app;
   year = new Date().getFullYear();
   logo = require('../assets/logo.png');
-  languages = ['en', 'de', 'sk', 'pt-br'];
+  languages = ['en', 'de', 'sk', 'pt-br', 'fr', 'es'];
   navigation = [
     { link: 'about', label: 'anms.menu.about' },
     { link: 'features', label: 'anms.menu.features' },

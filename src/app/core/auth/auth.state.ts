@@ -1,11 +1,6 @@
 import { Action, State, StateContext } from '@ngxs/store';
 import { ActionAuthLogin, ActionAuthLogout } from '@app/core/auth/auth.actions';
-
-export const AUTH_KEY = 'AUTH';
-
-export interface AuthStateModel {
-  isAuthenticated: boolean;
-}
+import { AuthStateModel } from '@app/core/auth/auth.model';
 
 export const initialState: AuthStateModel = {
   isAuthenticated: false

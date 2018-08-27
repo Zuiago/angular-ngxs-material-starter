@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { ConfiguracoesStateModel } from '../configuracoes.state';
 import {
   ActionConfiguracoesChangeAnimationsElements,
   ActionConfiguracoesChangeAnimationsPage,
@@ -9,6 +8,7 @@ import {
   ActionConfiguracoesChangeTheme,
   ActionConfiguracoesPersist
 } from '@app/configuracoes/configuracoes.actions';
+import { ConfiguracoesStateModel } from '@app/configuracoes/configuracoes.model';
 
 @Component({
   selector: 'gsa-configuracoes-form',
@@ -34,7 +34,9 @@ export class ConfiguracoesFormComponent implements OnInit {
     { value: 'en', label: 'en' },
     { value: 'de', label: 'de' },
     { value: 'sk', label: 'sk' },
-    { value: 'pt-br', label: 'pt-br'}
+    { value: 'pt-br', label: 'pt-br' },
+    { value: 'fr', label: 'fr' },
+    { value: 'es', label: 'es' }
   ];
 
   constructor(private store: Store) {

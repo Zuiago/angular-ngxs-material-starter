@@ -10,18 +10,7 @@ import {
   ActionConfiguracoesChangeAnimationsPage,
   ActionConfiguracoesChangeAnimationsPageDisabled
 } from '@app/configuracoes/configuracoes.actions';
-
-export const CONFIGURACOES_KEY = 'CONFIGURACOES';
-export const NIGHT_MODE_THEME = 'BLACK-THEME';
-
-export interface ConfiguracoesStateModel {
-  language: string;
-  theme: string;
-  autoNightMode: boolean;
-  pageAnimations: boolean;
-  pageAnimationsDisabled: boolean;
-  elementsAnimations: boolean;
-}
+import { ConfiguracoesStateModel } from '@app/configuracoes/configuracoes.model';
 
 @State<ConfiguracoesStateModel>({
   name: 'configuracoes',

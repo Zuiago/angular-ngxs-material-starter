@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivationEnd, Router } from '@angular/router';
 import { filter, map, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 import { routeAnimations, TitleService } from '@app/core';
 import { Store } from '@ngxs/store';
@@ -15,13 +15,14 @@ import { Store } from '@ngxs/store';
 })
 export class ExamplesComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
+  private isAuthenticated$: Observable<boolean>;
 
   examples = [
     { link: 'todos', label: 'anms.examples.menu.todos' },
     { link: 'forms', label: 'anms.examples.menu.forms' },
     { link: 'stock-market', label: 'anms.examples.menu.stocks' },
     { link: 'theming', label: 'anms.examples.menu.theming' },
-    { link: 'authenticated', label: 'anms.examples.menu.auth' }
+    { link: 'authenticated', label: 'anms.examples.menu.auth', auth: true }
   ];
 
   constructor(
@@ -35,6 +36,9 @@ export class ExamplesComponent implements OnInit, OnDestroy {
     this.translate.setDefaultLang('en');
     this.subscribeToConfiguracoes();
     this.subscribeToRouterEvents();
+    this.isAuthenticated$ = this.store
+      .select(state => state.auth)
+      .pipe(map(auth => auth.isAuthenticated));
   }
 
   ngOnDestroy(): void {

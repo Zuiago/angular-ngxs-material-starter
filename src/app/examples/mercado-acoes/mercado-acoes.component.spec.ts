@@ -14,12 +14,10 @@ import { ExamplesModule } from '../examples.module';
 
 import { StockMarketComponent } from './stock-market.component';
 import { MercadoAcoesComponent } from '@app/examples/mercado-acoes/mercado-acoes.component';
-import {
-  MercadoAcoesState,
-  MercadoAcoesStateModel
-} from '@app/examples/mercado-acoes/mercado-acoes.state';
+import { MercadoAcoesState } from '@app/examples/mercado-acoes/mercado-acoes.state';
 import { ActionStockMarketRetrieve } from '@app/examples/mercado-acoes/mercado-acoes.actions';
 import { NgxsModule, Store } from '@ngxs/store';
+import { MercadoAcoesStateModel } from '@app/examples/mercado-acoes/mercado-acoes.model';
 
 describe('MercadoAcoesComponent', () => {
   let component: MercadoAcoesComponent;

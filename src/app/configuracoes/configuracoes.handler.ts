@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actions, ofActionDispatched } from '@ngxs/store';
 import { AnimationsService, LocalStorageService } from '@app/core';
 import { ActionConfiguracoesPersist } from '@app/configuracoes/configuracoes.actions';
-import { CONFIGURACOES_KEY } from '@app/configuracoes/configuracoes.state';
+
+export const CONFIGURACOES_KEY = 'CONFIGURACOES';
 
 @Injectable()
 export class ConfiguracoesHandler {

@@ -9,7 +9,6 @@ import {
 } from '@angular/core/testing';
 
 import { TestingModule, TestStore } from '@testing/utils';
-import { ConfiguracoesStateModel } from '@app/configuracoes/configuracoes.state';
 import { ConfiguracoesFormComponent } from '@app/configuracoes';
 import {
   ActionConfiguracoesChangeAnimationsElements,
@@ -17,6 +16,7 @@ import {
   ActionConfiguracoesChangeAutoNightMode,
   ActionConfiguracoesChangeTheme
 } from '@app/configuracoes/configuracoes.actions';
+import { ConfiguracoesStateModel } from '@app/configuracoes/configuracoes.model';
 
 describe('ConfiguracoesFormComponent', () => {
   let component: ConfiguracoesFormComponent;
