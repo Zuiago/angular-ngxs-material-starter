@@ -1,4 +1,7 @@
-import { ConfiguracoesStateModel } from './configuracoes.state';
+import {
+  ConfiguracoesStateModel,
+  Language
+} from '@app/configuracoes/configuracoes.model';
 
 export enum ConfiguracoesActionTypes {
   CHANGE_LANGUAGE = '[Configuracoes] Change Language',
@@ -9,8 +12,6 @@ export enum ConfiguracoesActionTypes {
   CHANGE_ANIMATIONS_ELEMENTS = '[Configuracoes] Change Animations Elements',
   PERSIST = '[Configuracoes] Persist'
 }
-
-export type Language = 'en' | 'sk';
 
 export class ActionConfiguracoesChangeLanguage {
   static readonly type = ConfiguracoesActionTypes.CHANGE_LANGUAGE;

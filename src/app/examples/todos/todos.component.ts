@@ -6,17 +6,17 @@ import { ROUTE_ANIMATIONS_ELEMENTS } from '@app/core';
 
 import { Store } from '@ngxs/store';
 import {
-  Todo,
-  TodosFilter,
-  TodosStateModel
-} from '@app/examples/todos/todos.state';
-import {
   ActionTodosAdd,
   ActionTodosFilter,
   ActionTodosPersist,
   ActionTodosRemoveDone,
   ActionTodosToggle
 } from '@app/examples/todos/todos.actions';
+import {
+  Todo,
+  TodosFilter,
+  TodosStateModel
+} from '@app/examples/todos/todos.model';
 
 @Component({
   selector: 'anms-todos',

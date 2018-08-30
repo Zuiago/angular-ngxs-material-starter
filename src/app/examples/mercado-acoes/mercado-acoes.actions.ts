@@ -1,6 +1,6 @@
 import { ConfiguracoesStateModel } from './configuracoes.state';
-import { Stock } from '@app/examples/mercado-acoes/mercado-acoes.state';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Stock } from '@app/examples/mercado-acoes/mercado-acoes.model';
 
 export enum StockMarketActionTypes {
   RETRIEVE = '[Stock] Retrieve',

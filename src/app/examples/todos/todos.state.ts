@@ -11,6 +11,7 @@ import {
   ActionTodosRemoveDone,
   ActionTodosToggle
 } from '@app/examples/todos/todos.actions';
+import { Todo, TodosStateModel } from '@app/examples/todos/todos.model';
 
 export const TODOS_KEY = 'EXAMPLES.TODOS';
 
@@ -75,17 +76,4 @@ export class TodosState {
   ) {
     patchState({ filter: payload.filter });
   }
-}
-
-export interface Todo {
-  id: string;
-  name: string;
-  done: boolean;
-}
-
-export type TodosFilter = 'ALL' | 'DONE' | 'ACTIVE';
-
-export interface TodosStateModel {
-  items: Todo[];
-  filter: TodosFilter;
 }
