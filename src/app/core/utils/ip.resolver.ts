@@ -1,8 +1,8 @@
 import { Resolve } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { ClientService } from './client.service';
-import { catchError } from 'rxjs/internal/operators';
 import { of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class IpResolver implements Resolve<any> {

@@ -1,0 +1,10 @@
+export class WsModel {
+    ip: string;
+    mensagem: string;
+
+    constructor(ip: string = null,
+                mensagem: string = null) {
+        this.ip = ip;
+        this.mensagem = mensagem;
+    }
+}

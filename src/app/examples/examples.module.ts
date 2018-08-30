@@ -18,6 +18,7 @@ import { MercadoAcoesState } from '@app/examples/mercado-acoes/mercado-acoes.sta
 import { TodosState } from '@app/examples/todos/todos.state';
 import { FormsComponent } from '@app/examples/forms/forms.component';
 import { CpfDirective } from '@app/core/directivas/cpf.directive';
+import { CepDirective } from '@app/core/directivas/cep.directive';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { CpfDirective } from '@app/core/directivas/cpf.directive';
     ParentComponent,
     ChildComponent,
     AuthenticatedComponent,
-    CpfDirective
+    CpfDirective,
+    CepDirective,
   ],
   providers: []
 })

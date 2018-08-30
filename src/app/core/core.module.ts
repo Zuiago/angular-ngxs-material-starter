@@ -22,7 +22,6 @@ import { DateTimeFormatPipe } from '@app/core/pipes/date-time-format.pipe';
 import { TimeFormatPipe } from '@app/core/pipes/time-format.pipe';
 import { LowerCaseDirective } from '@app/core/directivas/lower.case.directive';
 import { UpperCaseDirective } from '@app/core/directivas/uppercase.directive';
-import { CpfDirective } from '@app/core/directivas/cpf.directive';
 import { PhoneDirective } from '@app/core/directivas/phone.directive';
 import { UtilFunction } from '@app/core/utils/util.function';
 

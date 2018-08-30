@@ -1,5 +1,5 @@
 # Angular, NGXS and Angular Material Starter 
-by [@iago_aa](https://twitter.com/iago_aa)
+por [@iago_aa](https://twitter.com/iago_aa) baseado em Angular, NGRX and Angular Material Starter por [@tomastrajan](https://twitter.com/tomastrajan) 
 
 [![license](https://img.shields.io/github/license/Zuiago/angular-ngxs-material-starter.svg)](https://github.com/Zuiago/angular-ngxs-material-starter/blob/master/LICENSE) [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![Build Status](https://travis-ci.org/Zuiago/angular-ngxs-material-starter.svg?branch=master)](https://travis-ci.org/Zuiago/angular-ngxs-material-starter) [![Twitter Follow](https://img.shields.io/twitter/follow/iago_aa.svg?style=social&label=Follow)](https://twitter.com/iago_aa)
 
@@ -12,9 +12,9 @@ by [@iago_aa](https://twitter.com/iago_aa)
   * [Live Demo](https://https://zuiago.github.io//angular-ngxs-material-starter)
   * [Getting Started](#getting-started)
   * [Useful Commands](#useful-commands)
-  * [Make It Your Own](#make-it-your-own)
-  * [Learning Materials](#learning-materials)
-  * [List of Projects Built Using This Starter](https://github.com/Zuiago/angular-ngxs-material-starter/blob/master/BUILT_WITH.md)
+  * [Make It Your Own](#torne-isso-um-projeto-seu)
+  * [Learning Materials](#estude-material)
+  * [Lista de Projectos construidos usando este projeto starter](https://github.com/Zuiago/angular-ngxs-material-starter/blob/master/BUILT_WITH.md)
   * [Features](#features)
   * [Stack](#stack)
   * [Code of Conduct](https://github.com/Zuiago/angular-ngxs-material-starter/blob/master/CODE_OF_CONDUCT.md)
@@ -31,16 +31,16 @@ npm start
 ```
 
 ## Useful Commands
-  * `npm start` - starts a dev server and opens browser with running app
-  * `npm run test` - runs lint and tests
-  * `npm run watch` - runs tests in watch mode
-  * `npm run prod` - runs full prod build and serves prod bundle
-  * `npm run prettier` - runs prettier to format whole code base (`.ts` and `.scss`) 
-  * `npm run analyze` - runs full prod build and `webpack-bundle-analyzer` to visualize how much code is shipped (dependencies & application) 
+  * `npm start` - inicia um servidor de desenvolvimento e abre o navegador com a aplicação rodando
+  * `npm run test` - roda tarefas de lint e testes
+  * `npm run watch` - roda tarefas de teste em watch mode (Faz com que cada alteração de arquivo dispare o teste)
+  * `npm run prod` - roda todo o build preparado para produção e cria o prod bundle
+  * `npm run prettier` - roda o prettier para formatar todo codigo escrito em typescript e scss 
+  * `npm run analyze` - roda todo o build preparado para produção e o pluguin do webpack`webpack-bundle-analyzer` para visualizar dependencias e gerenciar o tamanho da aplicação 
 
 ![analzye](https://raw.githubusercontent.com/Zuiago/angular-ngxs-material-starter/master/meta-assets/analyze.png)
 
-## Make It Your Own
+## Torne isso um projeto seu
 When using this starter project to build your own app you might consider some of the following steps:
   
   * use `search and replace` functionality of your favourite IDE to replace `anms` with `<your-app-prefix>`
@@ -53,17 +53,17 @@ When using this starter project to build your own app you might consider some of
   * adjust colors in `src/themes/default-theme.scss`
   * create a pull request in the [original repository](https://github.com/Zuiago/angular-ngxs-material-starter/) to update `BUILT_WITH.md` [file](https://github.com/Zuiago/angular-ngxs-material-starter/blob/master/BUILT_WITH.md) with a link and short description of your project
   
-#### Continuous Integration
-Starter project is using [Travis CI](https://travis-ci.org/) for running linters and tests on every commit.
-Based on your preferences and needs you can either:
+#### Integração contínua
+Starter project estã usando [Travis CI](https://travis-ci.org/) para rodar linters e testes em cada commit realizado.
+Baseado na sua preferência você pode:
 
-  * not use / use other CI server and delete both `.travis.yml` and `.travis-deploy.sh`
-  * create Travis CI account and link it to your projects Github repo and [configure build](https://medium.com/@tomastrajan/continuous-deployment-of-client-side-apps-with-github-pages-travis-ci-10e9d641a889) 
-    with `GH_REF` and `GH_TOKEN` environment variables for automatic deployment of releases to Github Pages
+  * não usar ou usar de outro CI server e deletar tanto`.travis.yml` e `.travis-deploy.sh`
+  * Segue o artigo em Inglês que explica como criar uma conta no Travis CI e fazer o link com o projeto no repositório do Github [configure build](https://medium.com/@tomastrajan/continuous-deployment-of-client-side-apps-with-github-pages-travis-ci-10e9d641a889) 
+    com `GH_REF` e `GH_TOKEN` environment variables para automaticamente fazer deploy das releases para Paginas do Github
   
 
-## Learning Materials
-Articles with content that explains various approaches used to build this starter project.
+## Estude Material
+Estes artigos possuem conteudo que explica varias abordagens usadas para construir este starter project.
 
   * [Blog post about Best Practices for Angular CLI](https://medium.com/@tomastrajan/6-best-practices-pro-tips-for-angular-cli-better-developer-experience-7b328bc9db81) used in this starter project
   * [Blog post about Typescript tips for Ngrx reducer code](https://medium.com/@tomastrajan/object-assign-vs-object-spread-in-angular-ngrx-reducers-3d62ecb4a4b0)
@@ -72,7 +72,7 @@ Articles with content that explains various approaches used to build this starte
   * [Blog post about unit testing of components with NgRx TestStore](https://medium.com/@tomastrajan/how-to-unit-test-angular-components-with-fake-ngrx-teststore-f0500cc5fc26)
   * [Blog post about Angular CLI budgets](https://medium.com/@tomastrajan/how-did-angular-cli-budgets-save-my-day-and-how-they-can-save-yours-300d534aae7a)
 
-#### Theming 
+#### Temas 
 
   * [Blog post](https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1)
   * [Presentation (Slides)](http://slides.com/tomastrajan/angular-material-themes-guide#/)
@@ -82,13 +82,12 @@ Articles with content that explains various approaches used to build this starte
  
 ## Features
 
-* custom themes support (3 themes included)
-* lazy-loading of feature modules
-* lazy reducers
+* suporte a temas customizados (5 temas incluídos)
+* carregamento lazy-loading de feature modules
 * localStorage ui state persistence
 * `@Action Handlers` for API requests
-* fully responsive design
-* angular-material and custom components in `SharedModule`
+* Design totalmente responsivo
+* angular-material e componentes customizados ficam em `SharedModule`
  
 ## Stack
 
@@ -101,12 +100,12 @@ Articles with content that explains various approaches used to build this starte
 
 * **Blocking at emitting LicenseWebpackPlugin when npm start** - try using [cnpm](https://github.com/cnpm/cnpm) instead of npm
 
-## Contributors
-Want to start contributing to open source with Angular? 
+## Contribuidores
+Quer contribuir com este projeto angular feito para desenvolvedores brasileiros?
 
-Leave your mark and join the growing team of contributors!
+Deixe sua marca e ingresse nesse time de contribuidores que está começando!
 
-Get started by checking out list of open [issues](https://github.com/Zuiago/angular-ngxs-material-starter/issues) and reading [Contributor Guide](https://github.com/Zuiago/angular-ngxs-material-starter/blob/master/CONTRIBUTING.md)
+Comece verificando as issues localizadas em [issues](https://github.com/Zuiago/angular-ngxs-material-starter/issues) e leia [Contributor Guide](https://github.com/Zuiago/angular-ngxs-material-starter/blob/master/CONTRIBUTING.md)
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
