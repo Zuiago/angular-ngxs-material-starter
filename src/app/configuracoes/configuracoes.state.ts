@@ -27,7 +27,7 @@ export interface ConfiguracoesStateModel {
   name: 'configuracoes',
   defaults: {
     language: 'pt-br',
-    theme: 'DEFAULT-THEME',
+    theme: 'SANEAGO-THEME',
     autoNightMode: false,
     pageAnimations: true,
     pageAnimationsDisabled: false,
