@@ -15,40 +15,39 @@ import {
   NG_VALUE_ACCESSOR
 } from '@angular/forms';
 
-export function ValidateCpf() {
+export function ValidateCnpj() {
   return (c: FormControl) => {
     const err = {
-      cpfPattern: true
+      cnpjPattern: true
     };
-    return c.value && !BrV.cpf.validate(c.value) ? err : null;
+    return c.value && !BrV.cnpj.validate(c.value) ? err : null;
   };
 }
 
 @Directive({
-  selector: '[BrCpfMask]',
+  selector: '[BrCnpjMask]',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CpfDirective),
+      useExisting: forwardRef(() => CnpjDirective),
       multi: true
     },
     {
       provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => CpfDirective),
+      useExisting: forwardRef(() => CnpjDirective),
       multi: true
     }
   ]
 })
-export class CpfDirective implements OnInit, ControlValueAccessor {
+export class CnpjDirective implements OnInit, ControlValueAccessor {
   /** Pattern created by StringMask library*/
-  private cpfPattern = new StringMask('000.000.000-00');
+  private cnpjPattern = new StringMask('00.000.000/0000-00');
 
-  /** Placeholders for the callbacks which are later provides by the Control Value Accessor*/
-  public onChangeCallback = (_: any) => {
+  /** Placeholders for the callbacks which are later providesd by the Control Value Accessor*/
+  private onChangeCallback = (_: any) => {
     /*Vazio*/
   };
-  @HostListener('blur', ['$event'])
-  public onTouchCallback = () => {
+  private onTouchCallback = () => {
     /*Vazio*/
   };
   validateFn: any = () => {
@@ -77,14 +76,17 @@ export class CpfDirective implements OnInit, ControlValueAccessor {
   /**
    * Write a new value to the element.
    */
-  public writeValue(modelValue: string): void {
-    if (modelValue === null || modelValue === undefined) {
-      this._elementRef.nativeElement.value = '';
+  public writeValue(inputValue: string): void {
+    if (!inputValue) {
       return;
     }
 
-    const cleanValue: string = this._cleanValue(modelValue);
-    this._applyValueChanges(cleanValue);
+    const cleanValue: string = this._cleanValue(inputValue);
+    this._elementRef.nativeElement.value = (
+      this.cnpjPattern.apply(cleanValue) || ''
+    )
+      .trim()
+      .replace(/[^0-9]$/, '');
   }
 
   /** From ControlValueAccessor interface*/
@@ -94,6 +96,7 @@ export class CpfDirective implements OnInit, ControlValueAccessor {
    */
   public registerOnChange(fn: any): void {
     this.onChangeCallback = fn;
+    return;
   }
 
   /** From ControlValueAccessor interface*/
@@ -106,9 +109,9 @@ export class CpfDirective implements OnInit, ControlValueAccessor {
   }
 
   /** It applies the mask in the input and updates the control's value. */
-  public _applyValueChanges(cleanValue: string): void {
+  private _applyValueChanges(cleanValue: string): void {
     this._elementRef.nativeElement.value = (
-      this.cpfPattern.apply(cleanValue) || ''
+      this.cnpjPattern.apply(cleanValue) || ''
     )
       .trim()
       .replace(/[^0-9]$/, '');
@@ -116,14 +119,14 @@ export class CpfDirective implements OnInit, ControlValueAccessor {
   }
 
   /** It clean the captured value in the input*/
-  public _cleanValue(viewValue: string): string {
-    return viewValue.replace(/[^\d]/g, '').slice(0, 11);
+  private _cleanValue(viewValue: string): string {
+    return viewValue.replace(/[^\d]/g, '').slice(0, 14);
   }
 
   /** Return the validation result*/
   validate(c: FormControl) {
     if (c.value) {
-      this.validateFn = ValidateCpf();
+      this.validateFn = ValidateCnpj();
     }
     return this.validateFn(c);
   }

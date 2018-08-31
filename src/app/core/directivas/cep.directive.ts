@@ -14,12 +14,10 @@ import {
   NG_VALUE_ACCESSOR
 } from '@angular/forms';
 
-export function createCepValidator() {
+export function ValidateCep() {
   return (c: FormControl) => {
     const err = {
-      validationPatternError: {
-        cepPattern: true
-      }
+      cepPattern: true
     };
     return !(c.value.toString().trim().length === 8) ? err : null;
   };
@@ -45,9 +43,16 @@ export class CepDirective implements OnInit, ControlValueAccessor {
   private cepPattern = new StringMask('00000-000');
 
   /** Placeholders for the callbacks which are later providesd by the Control Value Accessor*/
-  private onChangeCallback = (_: any) => {};
-  private onTouchCallback = () => {};
-  validateFn: any = () => {};
+  private onChangeCallback = (_: any) => {
+    /*Vazio*/
+  };
+  @HostListener('blur', ['$event'])
+  private onTouchCallback = () => {
+    /*Vazio*/
+  };
+  validateFn: any = () => {
+    /*Vazio*/
+  };
 
   constructor(private _elementRef: ElementRef) {}
 
@@ -102,7 +107,7 @@ export class CepDirective implements OnInit, ControlValueAccessor {
   }
 
   /** It applies the mask in the input and updates the control's value. */
-  private _applyValueChanges(cleanValue): void {
+  private _applyValueChanges(cleanValue: string): void {
     this._elementRef.nativeElement.value = (
       this.cepPattern.apply(cleanValue) || ''
     ).replace(/[^0-9]$/, '');
@@ -110,17 +115,14 @@ export class CepDirective implements OnInit, ControlValueAccessor {
   }
 
   /** It clean the captured value in the input*/
-  private _cleanValue(viewValue): string {
-    return viewValue
-      .toString()
-      .replace(/[^0-9]/g, '')
-      .slice(0, 8);
+  private _cleanValue(viewValue: string): string {
+    return viewValue.replace(/[^0-9]/g, '').slice(0, 8);
   }
 
   /** Return the validation result*/
   validate(c: FormControl) {
     if (c.value) {
-      this.validateFn = createCepValidator();
+      this.validateFn = ValidateCep();
     }
     return this.validateFn(c);
   }

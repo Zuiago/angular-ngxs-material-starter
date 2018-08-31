@@ -162,7 +162,7 @@ export class PhoneDirective implements OnInit, ControlValueAccessor {
   }
 
   /** It applies the mask in the input and updates the control's value. */
-  public _applyValueChanges(cleanValue): void {
+  public _applyValueChanges(cleanValue: string): void {
     let formattedValue;
 
     if (this.phonePattern && cleanValue.length > 2) {
@@ -192,7 +192,7 @@ export class PhoneDirective implements OnInit, ControlValueAccessor {
   }
 
   /** It clean the captured value in the input*/
-  public _cleanValue(viewValue): string {
+  public _cleanValue(viewValue: string): string {
     if (this.phonePattern) {
       const maskLength = this.phonePattern.pattern
         .trim()
