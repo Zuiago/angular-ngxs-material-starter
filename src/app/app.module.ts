@@ -37,7 +37,7 @@ import { AuthHandler } from '@app/core/auth/auth.handler';
     ConfiguracoesModule,
 
     // ngxs
-    NgxsModule.forRoot([ConfiguracoesState, AuthState]),
+    NgxsModule.forFeature([ConfiguracoesState, AuthState]),
     HandlerModule.forRoot([
       ConfiguracoesHandler,
       AuthHandler,

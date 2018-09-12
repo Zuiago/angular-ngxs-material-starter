@@ -44,15 +44,9 @@ export class CnpjDirective implements OnInit, ControlValueAccessor {
   private cnpjPattern = new StringMask('00.000.000/0000-00');
 
   /** Placeholders for the callbacks which are later providesd by the Control Value Accessor*/
-  private onChangeCallback = (_: any) => {
-    /*Vazio*/
-  };
-  private onTouchCallback = () => {
-    /*Vazio*/
-  };
-  validateFn: any = () => {
-    /*Vazio*/
-  };
+  private onChangeCallback = (_: any) => {};
+  private onTouchCallback = () => {};
+  validateFn: any = () => {};
 
   constructor(private _elementRef: ElementRef) {}
 

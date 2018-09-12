@@ -2,6 +2,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { isNumeric } from 'rxjs/internal/util/isNumeric';
 import { isObject } from 'rxjs/internal/util/isObject';
 
+export class EnumObjectoConverted {
+  constructor(public name: string, public value: any = null) {}
+}
+
 @Pipe({
   name: 'enumToObject'
 })
@@ -25,8 +29,4 @@ export class EnumToObjectPipe implements PipeTransform {
   private isString(t: any) {
     return t != null && typeof t === 'string';
   }
-}
-
-export class EnumObjectoConverted {
-  constructor(public name: string, public value: any = null) {}
 }

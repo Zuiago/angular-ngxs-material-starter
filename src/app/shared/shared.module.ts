@@ -23,6 +23,20 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { BigInputComponent } from './big-input/big-input.component';
 import { BigInputActionComponent } from './big-input/big-input-action.component';
+import { EnumToArrayPipe } from '@app/core/pipes/enum-to-array.pipe';
+import { EnumToObjectPipe } from '@app/core/pipes/enum-to-object.pipe';
+import { ToUpperCasePipe } from '@app/core/pipes/to.upper.case.pipe';
+import { ToLowerCasePipe } from '@app/core/pipes/to.lower.case.pipe';
+import { KeysPipe } from '@app/core/pipes/keys.pipe';
+import { DateFormatPipe } from '@app/core/pipes/date-format.pipe';
+import { DateTimeFormatPipe } from '@app/core/pipes/date-time-format.pipe';
+import { TimeFormatPipe } from '@app/core/pipes/time-format.pipe';
+import { LowerCaseDirective } from '@app/core/directivas/lower.case.directive';
+import { UpperCaseDirective } from '@app/core/directivas/uppercase.directive';
+import { PhoneDirective } from '@app/core/directivas/phone.directive';
+import { CpfDirective } from '@app/core/directivas/cpf.directive';
+import { CepDirective } from '@app/core/directivas/cep.directive';
+import { CnpjDirective } from '@app/core/directivas/cnpj.directive';
 
 @NgModule({
   imports: [
@@ -47,7 +61,25 @@ import { BigInputActionComponent } from './big-input/big-input-action.component'
     MatSnackBarModule,
     MatSlideToggleModule
   ],
-  declarations: [BigInputComponent, BigInputActionComponent],
+  declarations: [
+    BigInputComponent,
+    BigInputActionComponent,
+    EnumToArrayPipe,
+    EnumToObjectPipe,
+    ToUpperCasePipe,
+    ToLowerCasePipe,
+    KeysPipe,
+    DateFormatPipe,
+    DateTimeFormatPipe,
+    TimeFormatPipe,
+    /*Directivas*/
+    LowerCaseDirective,
+    UpperCaseDirective,
+    PhoneDirective,
+    CpfDirective,
+    CepDirective,
+    CnpjDirective
+  ],
   exports: [
     CommonModule,
     FormsModule,
@@ -70,7 +102,22 @@ import { BigInputActionComponent } from './big-input/big-input-action.component'
     MatSnackBarModule,
     MatSlideToggleModule,
     BigInputComponent,
-    BigInputActionComponent
+    BigInputActionComponent,
+    EnumToArrayPipe,
+    EnumToObjectPipe,
+    ToUpperCasePipe,
+    ToLowerCasePipe,
+    KeysPipe,
+    DateFormatPipe,
+    DateTimeFormatPipe,
+    TimeFormatPipe,
+    /*Directivas*/
+    LowerCaseDirective,
+    UpperCaseDirective,
+    PhoneDirective,
+    CpfDirective,
+    CepDirective,
+    CnpjDirective
   ]
 })
 export class SharedModule {}

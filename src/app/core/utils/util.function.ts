@@ -1,3 +1,5 @@
+/*jshint bitwise: false*/
+
 /**
  * Created by iago.almeida on 23/06/2017.
  */

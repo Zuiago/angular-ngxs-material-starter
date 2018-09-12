@@ -42,10 +42,7 @@ import { CnpjDirective } from '@app/core/directivas/cnpj.directive';
     MercadoAcoesComponent,
     ParentComponent,
     ChildComponent,
-    AuthenticatedComponent,
-    CpfDirective,
-    CepDirective,
-    CnpjDirective
+    AuthenticatedComponent
   ],
   providers: []
 })

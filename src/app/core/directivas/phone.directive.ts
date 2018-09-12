@@ -90,13 +90,9 @@ export class PhoneDirective implements OnInit, ControlValueAccessor {
   private phonePattern: any;
 
   /** Placeholders for the callbacks which are later provides by the Control Value Accessor*/
-  public onChangeCallback = (_: any) => {
-    /*Vazio*/
-  };
+  public onChangeCallback = (_: any) => {};
   @HostListener('blur', ['$event'])
-  public onTouchCallback = () => {
-    /*Vazio*/
-  };
+  public onTouchCallback = () => {};
   validateFn: any = () => {
     /*Vazio*/
   };

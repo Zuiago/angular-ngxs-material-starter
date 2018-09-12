@@ -66,8 +66,8 @@ export class AppComponent implements OnInit, OnDestroy {
     (<any>window).ga('send', 'pageview');
   }
 
-  private static isIEorEdge() {
-    return ['ie', 'edge'].includes(browser().name);
+  private static isIEorEdgeOrSafari() {
+    return ['ie', 'edge', 'safari'].includes(browser().name);
   }
 
   ngOnInit(): void {
@@ -104,7 +104,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private subscribeToConfiguracoes() {
-    if (AppComponent.isIEorEdge()) {
+    if (AppComponent.isIEorEdgeOrSafari()) {
       this.store.dispatch([
         new ActionConfiguracoesChangeAnimationsPageDisabled(true)
       ]);

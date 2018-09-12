@@ -44,14 +44,14 @@ export class CepDirective implements OnInit, ControlValueAccessor {
 
   /** Placeholders for the callbacks which are later providesd by the Control Value Accessor*/
   private onChangeCallback = (_: any) => {
-    /*Vazio*/
+    /* Vazio */
   };
   @HostListener('blur', ['$event'])
   private onTouchCallback = () => {
-    /*Vazio*/
+    /* Vazio */
   };
   validateFn: any = () => {
-    /*Vazio*/
+    /* Vazio */
   };
 
   constructor(private _elementRef: ElementRef) {}

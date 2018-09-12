@@ -44,16 +44,10 @@ export class CpfDirective implements OnInit, ControlValueAccessor {
   private cpfPattern = new StringMask('000.000.000-00');
 
   /** Placeholders for the callbacks which are later provides by the Control Value Accessor*/
-  public onChangeCallback = (_: any) => {
-    /*Vazio*/
-  };
+  public onChangeCallback = (_: any) => {};
   @HostListener('blur', ['$event'])
-  public onTouchCallback = () => {
-    /*Vazio*/
-  };
-  validateFn: any = () => {
-    /*Vazio*/
-  };
+  public onTouchCallback = () => {};
+  validateFn: any = () => {};
 
   constructor(private _elementRef: ElementRef) {}
 
