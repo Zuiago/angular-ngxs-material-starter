@@ -38,7 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
   version = env.versions.app;
   year = new Date().getFullYear();
   logo = require('../assets/logo.png');
-  languages = ['en', 'de', 'sk', 'pt-br', 'fr', 'es'];
+  languages = ['en', 'de', 'sk', 'pt-br', 'fr', 'es', 'zh-cn', 'he'];
   navigation = [
     { link: 'about', label: 'anms.menu.about' },
     { link: 'features', label: 'anms.menu.features' },
@@ -98,9 +98,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private subscribeToIsAuthenticated() {
-    this.store.select(state => state.auth).subscribe(auth => {
-      this.isAuthenticated = auth.isAuthenticated;
-    });
+    this.store
+      .select(state => state.auth)
+      .subscribe(auth => {
+        this.isAuthenticated = auth.isAuthenticated;
+      });
   }
 
   private subscribeToConfiguracoes() {
@@ -109,15 +111,17 @@ export class AppComponent implements OnInit, OnDestroy {
         new ActionConfiguracoesChangeAnimationsPageDisabled(true)
       ]);
     }
-    this.store.select(state => state.configuracoes).subscribe(configuracoes => {
-      this.settings = configuracoes;
-      this.setTheme(configuracoes);
-      this.setLanguage(configuracoes);
-      this.animationService.updateRouteAnimationType(
-        configuracoes.pageAnimations,
-        configuracoes.elementsAnimations
-      );
-    });
+    this.store
+      .select(state => state.configuracoes)
+      .subscribe(configuracoes => {
+        this.settings = configuracoes;
+        this.setTheme(configuracoes);
+        this.setLanguage(configuracoes);
+        this.animationService.updateRouteAnimationType(
+          configuracoes.pageAnimations,
+          configuracoes.elementsAnimations
+        );
+      });
   }
 
   private setTheme(settings: ConfiguracoesStateModel) {

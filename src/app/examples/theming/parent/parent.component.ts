@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ROUTE_ANIMATIONS_ELEMENTS } from '@app/core';
 
 @Component({
   selector: 'anms-parent',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
   themeSrc: string = require('!raw-loader!./parent.component.scss-theme.scss');
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
   constructor() {}
 

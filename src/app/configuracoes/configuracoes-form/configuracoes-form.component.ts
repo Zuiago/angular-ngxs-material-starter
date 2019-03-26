@@ -34,15 +34,19 @@ export class ConfiguracoesFormComponent implements OnInit {
     { value: 'en', label: 'en' },
     { value: 'de', label: 'de' },
     { value: 'sk', label: 'sk' },
-    { value: 'pt-br', label: 'pt-br' },
     { value: 'fr', label: 'fr' },
-    { value: 'es', label: 'es' }
+    { value: 'es', label: 'es' },
+    { value: 'pt-br', label: 'pt-br' },
+    { value: 'zh-cn', label: 'zh-cn' },
+    { value: 'he', label: 'he' }
   ];
 
   constructor(private store: Store) {
-    this.store.select(state => state.configuracoes).subscribe(configuracoes => {
-      this.configuracoes = configuracoes;
-    });
+    this.store
+      .select(state => state.configuracoes)
+      .subscribe(configuracoes => {
+        this.configuracoes = configuracoes;
+      });
   }
 
   ngOnInit(): void {}

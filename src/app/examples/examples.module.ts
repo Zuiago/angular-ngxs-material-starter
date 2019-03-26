@@ -16,10 +16,8 @@ import { MercadoAcoesComponent } from '@app/examples/mercado-acoes/mercado-acoes
 import { NgxsModule } from '@ngxs/store';
 import { MercadoAcoesState } from '@app/examples/mercado-acoes/mercado-acoes.state';
 import { TodosState } from '@app/examples/todos/todos.state';
-import { FormsComponent } from '@app/examples/forms/forms.component';
-import { CpfDirective } from '@app/core/directivas/cpf.directive';
-import { CepDirective } from '@app/core/directivas/cep.directive';
-import { CnpjDirective } from '@app/core/directivas/cnpj.directive';
+import { NotificationsComponent } from '@app/examples/notifications/components/notifications.component';
+import { FormComponent } from '@app/examples/forms/form.component';
 
 @NgModule({
   imports: [
@@ -37,12 +35,13 @@ import { CnpjDirective } from '@app/core/directivas/cnpj.directive';
   ],
   declarations: [
     ExamplesComponent,
-    FormsComponent,
+    FormComponent,
     TodosComponent,
     MercadoAcoesComponent,
     ParentComponent,
     ChildComponent,
-    AuthenticatedComponent
+    AuthenticatedComponent,
+    NotificationsComponent
   ],
   providers: []
 })

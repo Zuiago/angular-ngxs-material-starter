@@ -37,12 +37,80 @@ import { PhoneDirective } from '@app/core/directivas/phone.directive';
 import { CpfDirective } from '@app/core/directivas/cpf.directive';
 import { CepDirective } from '@app/core/directivas/cep.directive';
 import { CnpjDirective } from '@app/core/directivas/cnpj.directive';
+import { CpfCnpjDirective } from '@app/core/directivas/cpfcnpj.directive';
+import { MatDividerModule } from '@angular/material';
+import { RtlSupportDirective } from '@app/shared/rtl-support/rtl-support.directive';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faBars,
+  faUserCircle,
+  faPowerOff,
+  faCog,
+  faPlayCircle,
+  faRocket,
+  faPlus,
+  faEdit,
+  faTrash,
+  faTimes,
+  faCaretUp,
+  faCaretDown,
+  faExclamationTriangle,
+  faFilter,
+  faTasks,
+  faCheck,
+  faSquare,
+  faLanguage,
+  faPaintBrush,
+  faLightbulb,
+  faWindowMaximize,
+  faStream,
+  faBook
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faGithub,
+  faMediumM,
+  faTwitter,
+  faInstagram,
+  faYoutube
+} from '@fortawesome/free-brands-svg-icons';
+
+library.add(
+  faBars,
+  faUserCircle,
+  faPowerOff,
+  faCog,
+  faRocket,
+  faPlayCircle,
+  faGithub,
+  faMediumM,
+  faTwitter,
+  faInstagram,
+  faYoutube,
+  faPlus,
+  faEdit,
+  faTrash,
+  faTimes,
+  faCaretUp,
+  faCaretDown,
+  faExclamationTriangle,
+  faFilter,
+  faTasks,
+  faCheck,
+  faSquare,
+  faLanguage,
+  faPaintBrush,
+  faLightbulb,
+  faWindowMaximize,
+  faStream,
+  faBook
+);
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     TranslateModule,
     MatButtonModule,
     MatToolbarModule,
@@ -59,11 +127,14 @@ import { CnpjDirective } from '@app/core/directivas/cnpj.directive';
     MatIconModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDividerModule,
+    FontAwesomeModule
   ],
   declarations: [
     BigInputComponent,
     BigInputActionComponent,
+    RtlSupportDirective,
     EnumToArrayPipe,
     EnumToObjectPipe,
     ToUpperCasePipe,
@@ -78,7 +149,8 @@ import { CnpjDirective } from '@app/core/directivas/cnpj.directive';
     PhoneDirective,
     CpfDirective,
     CepDirective,
-    CnpjDirective
+    CnpjDirective,
+    CpfCnpjDirective
   ],
   exports: [
     CommonModule,
@@ -101,8 +173,13 @@ import { CnpjDirective } from '@app/core/directivas/cnpj.directive';
     MatTooltipModule,
     MatSnackBarModule,
     MatSlideToggleModule,
+
+    FontAwesomeModule,
+    FontAwesomeModule,
+
     BigInputComponent,
     BigInputActionComponent,
+    RtlSupportDirective,
     EnumToArrayPipe,
     EnumToObjectPipe,
     ToUpperCasePipe,
@@ -117,7 +194,8 @@ import { CnpjDirective } from '@app/core/directivas/cnpj.directive';
     PhoneDirective,
     CpfDirective,
     CepDirective,
-    CnpjDirective
+    CnpjDirective,
+    CpfCnpjDirective
   ]
 })
 export class SharedModule {}

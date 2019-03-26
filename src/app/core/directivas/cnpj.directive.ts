@@ -45,6 +45,7 @@ export class CnpjDirective implements OnInit, ControlValueAccessor {
 
   /** Placeholders for the callbacks which are later providesd by the Control Value Accessor*/
   private onChangeCallback = (_: any) => {};
+  @HostListener('blur', ['$event'])
   private onTouchCallback = () => {};
   validateFn: any = () => {};
 

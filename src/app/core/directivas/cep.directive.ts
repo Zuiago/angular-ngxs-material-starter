@@ -43,16 +43,10 @@ export class CepDirective implements OnInit, ControlValueAccessor {
   private cepPattern = new StringMask('00000-000');
 
   /** Placeholders for the callbacks which are later providesd by the Control Value Accessor*/
-  private onChangeCallback = (_: any) => {
-    /* Vazio */
-  };
+  private onChangeCallback = (_: any) => {};
   @HostListener('blur', ['$event'])
-  private onTouchCallback = () => {
-    /* Vazio */
-  };
-  validateFn: any = () => {
-    /* Vazio */
-  };
+  private onTouchCallback = () => {};
+  validateFn: any = () => {};
 
   constructor(private _elementRef: ElementRef) {}
 

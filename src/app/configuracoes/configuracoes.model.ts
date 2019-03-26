@@ -1,5 +1,5 @@
 export const NIGHT_MODE_THEME = 'BLACK-THEME';
-export type Language = 'en' | 'sk' | 'de' | 'pt-br' | 'fr' | 'es';
+export type Language = 'en' | 'sk' | 'de' | 'fr' | 'es' | 'pt-br' | 'he';
 
 export interface ConfiguracoesStateModel {
   language: string;

@@ -10,6 +10,8 @@ import { ParentComponent } from './theming/parent/parent.component';
 import { AuthenticatedComponent } from './authenticated/authenticated.component';
 import { MercadoAcoesComponent } from '@app/examples/mercado-acoes/mercado-acoes.component';
 import { FormsComponent } from '@app/examples/forms/forms.component';
+import { NotificationsComponent } from '@app/examples/notifications/components/notifications.component';
+import { FormComponent } from '@app/examples/forms/form.component';
 
 const routes: Routes = [
   {
@@ -23,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: 'forms',
-        component: FormsComponent,
+        component: FormComponent,
         data: { title: 'anms.examples.menu.forms' }
       },
       {
@@ -40,6 +42,11 @@ const routes: Routes = [
         path: 'theming',
         component: ParentComponent,
         data: { title: 'anms.examples.menu.theming' }
+      },
+      {
+        path: 'notifications',
+        component: NotificationsComponent,
+        data: { title: 'anms.examples.menu.notifications' }
       },
       {
         path: 'authenticated',

@@ -1,5 +1,5 @@
 ///<reference path="directivas/phone.directive.ts"/>
-import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { ErrorHandler, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -14,6 +14,9 @@ import { AnimationsService } from './animations/animations.service';
 import { TitleService } from './title/title.service';
 import { UtilFunction } from '@app/core/utils/util.function';
 import { NgxsModule } from '@ngxs/store';
+import { NotificationService } from '@app/core/notifications/notification.service';
+import { httpInterceptorProviders } from '@app/core/http-interceptors';
+import { AppErrorHandler } from '@app/core/error-handler/app-error-handler.service';
 
 @NgModule({
   imports: [
@@ -29,15 +32,20 @@ import { NgxsModule } from '@ngxs/store';
         deps: [HttpClient]
       }
     }),
+
+    // ngrx
     NgxsModule.forRoot([])
   ],
   declarations: [],
   providers: [
+    NotificationService,
     LocalStorageService,
+    httpInterceptorProviders,
     AuthGuardService,
     AnimationsService,
     TitleService,
-    UtilFunction
+    UtilFunction,
+    { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   exports: [TranslateModule]
 })
