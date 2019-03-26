@@ -22,7 +22,7 @@
   "anms.features.guide": "Návod",
   "anms.features.lazyloading.description": "Rýchlejší štartovací čas s lenivým nahrávaním modulov",
   "anms.features.lazyloading.title": "Lenivé nahrávanie",
-  "anms.features.ngrx": "Jednosmerný tok dát s pomocou RxJS Observables",
+  "anms.features.ngxs": "Jednosmerný tok dát s pomocou RxJS Observables",
   "anms.features.ngxtranslate": "Knižnica pre internacionalizáciu Angular applikácií",
   "anms.features.rxjs": "Reaktívne programovanie s asynchrónymi kolekciami s pomocou Observables",
   "anms.features.themes.description": "Flexibilná podpora tém pre vstavané a vlastné komponenty",
@@ -60,6 +60,6 @@
   "anms.settings.themes.sticky-header": "",
   "anms.settings.themes.title": "Témy",
   "anms.settings.title": "Nastavenia",
-  "anms.title.long": "Angular NgRx Material Štartér",
+  "anms.title.long": "Angular NGXS Material Štartér",
   "anms.title.short": "Angular Štartér"
 }

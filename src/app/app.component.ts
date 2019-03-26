@@ -3,24 +3,25 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { AnimationsService, routeAnimations, TitleService } from '@app/core';
 import { environment as env } from '@env/environment';
 
-import {} from '@app/configuracoes/configuracoes.state';
 import {
   ActionConfiguracoesChangeAnimationsPageDisabled,
   ActionConfiguracoesChangeLanguage,
   ActionConfiguracoesPersist
 } from '@app/configuracoes/configuracoes.actions';
-import { Store } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { ActionAuthLogin, ActionAuthLogout } from '@app/core/auth/auth.actions';
 import {
   ConfiguracoesStateModel,
   NIGHT_MODE_THEME
 } from '@app/configuracoes/configuracoes.model';
+import { AuthState } from '@app/core/auth/auth.state';
+import { AuthStateModel } from '@app/core/auth/auth.model';
 
 @Component({
   selector: 'anms-root',
@@ -30,6 +31,8 @@ import {
 })
 export class AppComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
+
+  @Select(AuthState) auth$: Observable<AuthStateModel>;
 
   @HostBinding('class') componentCssClass;
 
@@ -50,7 +53,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ];
 
   settings: ConfiguracoesStateModel;
-  isAuthenticated: boolean;
+  isAuthenticated$: Observable<boolean>;
+  stickyHeader$: Observable<boolean>;
 
   constructor(
     public overlayContainer: OverlayContainer,
@@ -59,7 +63,10 @@ export class AppComponent implements OnInit, OnDestroy {
     private titleService: TitleService,
     private animationService: AnimationsService,
     private translate: TranslateService
-  ) {}
+  ) {
+    this.isAuthenticated$ = this.store.select(state => state.auth.isAuthenticated);
+    this.stickyHeader$ = this.store.select(state => state.configura.stickyHeader);
+  }
 
   private static trackPageView(event: NavigationEnd) {
     (<any>window).ga('set', 'page', event.urlAfterRedirects);
@@ -73,7 +80,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.translate.setDefaultLang('en');
     this.subscribeToConfiguracoes();
-    this.subscribeToIsAuthenticated();
+    // this.subscribeToIsAuthenticated();
     this.subscribeToRouterEvents();
   }
 
@@ -97,18 +104,18 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
-  private subscribeToIsAuthenticated() {
-    this.store
-      .select(state => state.auth)
-      .subscribe(auth => {
-        this.isAuthenticated = auth.isAuthenticated;
-      });
-  }
+  // private subscribeToIsAuthenticated() {
+  //   this.store
+  //     .select(state => state.auth)
+  //     .subscribe(auth => {
+  //       this.isAuthenticated = auth.isAuthenticated;
+  //     });
+  // }
 
   private subscribeToConfiguracoes() {
     if (AppComponent.isIEorEdgeOrSafari()) {
       this.store.dispatch([
-        new ActionConfiguracoesChangeAnimationsPageDisabled(true)
+        new ActionConfiguracoesChangeAnimationsPageDisabled({ pageAnimationsDisabled: true})
       ]);
     }
     this.store

@@ -175,7 +175,6 @@ library.add(
     MatSlideToggleModule,
 
     FontAwesomeModule,
-    FontAwesomeModule,
 
     BigInputComponent,
     BigInputActionComponent,

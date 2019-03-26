@@ -22,7 +22,7 @@
   "anms.features.guide": "מדריך",
   "anms.features.lazyloading.description": "זמן איתחול מואץ בזכות שימוש בlazy loading modules",
   "anms.features.lazyloading.title": "Lazy loading",
-  "anms.features.ngrx": "זרימת דטה חד-כיוונית בעזרת RxJS Observables",
+  "anms.features.ngxs": "זרימת דטה חד-כיוונית בעזרת RxJS Observables",
   "anms.features.ngxtranslate": "תמיכה בריבוי שפות בשביל אנגולר",
   "anms.features.rxjs": " ריאקטיב פרוגראמינג עם קולקציות אסינכרוניות ו Observables",
   "anms.features.themes.description": "תמיכת גמישה בשינוי ערכת נושא, גם בשביל קומפוננטות ייחודיות (custom)",
@@ -60,6 +60,6 @@
   "anms.settings.themes.sticky-header": "חלק עליון נצמד",
   "anms.settings.themes.title": "ערכאות נושא",
   "anms.settings.title": "הגדרות",
-  "anms.title.long": "ngrx ערכת התחלה לפרויקט אנגולר מטריאל ו",
+  "anms.title.long": "ngxs ערכת התחלה לפרויקט אנגולר מטריאל ו",
   "anms.title.short": "ערכת התחלה לפרויקט אנגולר"
 }

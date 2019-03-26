@@ -1,2 +1,2 @@
 export * from './configuracoes.module';
-export * from './configuracoes-form/configuracoes-form.component';
+export * from './components/configuracoes-container.component';

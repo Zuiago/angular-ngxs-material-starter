@@ -1,5 +1,10 @@
 @import '../styles-variables';
 
+.theme-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
 mat-sidenav-container {
   height: 100%;
   width: 100%;
@@ -8,18 +13,21 @@ mat-sidenav-container {
     position: fixed;
     width: 100%;
     display: flex;
+    z-index: 10;
 
     .nav-button {
       margin: 0 10px 0 0;
     }
 
-    mat-icon {
+    fa-icon {
       font-size: 24px;
     }
 
     .branding {
       cursor: pointer;
+      overflow: hidden;
       padding-top: 4px;
+      text-overflow: ellipsis;
 
       &.center {
         text-align: center;
@@ -33,8 +41,7 @@ mat-sidenav-container {
       }
     }
 
-    .sign-in-button {
-      line-height: 35px;
+    .mat-stroked-button {
       margin-right: 10px;
     }
 
@@ -53,28 +60,22 @@ mat-sidenav-container {
         min-width: 0;
         padding: 0 10px;
       }
-      .sign-in-button {
-        min-width: 0;
-        padding: 0 10px;
-        margin: 0 5px 0 0;
-      }
     }
   }
 
   .wrapper {
     position: absolute;
-    top: 64px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
 
     .content {
-      position: relative;
       flex: 1 0 auto;
+      margin-top: 64px;
+      overflow: hidden;
     }
 
     .footer {
@@ -95,7 +96,7 @@ mat-sidenav-container {
               text-decoration: none;
             }
 
-            mat-icon {
+            fa-icon {
               font-size: 30px;
               width: 35px;
             }
@@ -149,9 +150,9 @@ mat-sidenav-container {
     }
   }
 
-  @media (max-width: map-get($grid-breakpoints, sm)) {
-    .wrapper {
-      top: 56px;
+  @media (max-width: $toolbar-breakpoint) {
+    .content {
+      margin-top: 56px !important;
     }
   }
 }

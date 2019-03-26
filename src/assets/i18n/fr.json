@@ -1,5 +1,5 @@
 {
-  "anms.title": "Kit de démarrage Angular NgRx Material",
+  "anms.title": "Kit de démarrage Angular NGXS Material",
   "anms.title.short": "Kit de démarrage",
   "anms.header.github": "Dépot Github",
   "anms.footer.changelog": "Afficher le journal des changements",
@@ -28,7 +28,7 @@
   "anms.features.angular": "Modern powerful framework",
   "anms.features.angular-material": "Bibliothèque de composants material design",
   "anms.features.angular-cli": "Une interface en ligne de commande pour Angular",
-  "anms.features.ngrx": "Flux de données à sens unique alimenté par les Observables RxJS",
+  "anms.features.ngxs": "Flux de données à sens unique alimenté par les Observables RxJS",
   "anms.features.ngxtranslate": "Une bibliothèque d'internationalisation pour Angular",
   "anms.features.rxjs": "Programmation réactive avec des collections asynchrones à l'aide d'observables",
   "anms.features.bootstrap": "Bibliothèque d'interface utilisateur la plus connue au monde avec une mise en page réactive",

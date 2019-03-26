@@ -1,4 +1,4 @@
-import { Action, State, StateContext } from '@ngxs/store';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { ActionAuthLogin, ActionAuthLogout } from '@app/core/auth/auth.actions';
 import { AuthStateModel } from '@app/core/auth/auth.model';
 

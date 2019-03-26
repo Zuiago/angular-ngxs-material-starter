@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConfiguracoesFormComponent } from '@app/configuracoes';
+import { ConfiguracoesContainerComponent } from '@app/configuracoes';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'settings',
-    component: ConfiguracoesFormComponent,
+    component: ConfiguracoesContainerComponent,
     data: { title: 'anms.menu.settings' }
   },
   {

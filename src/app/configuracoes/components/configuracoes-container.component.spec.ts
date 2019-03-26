@@ -9,7 +9,7 @@ import {
 } from '@angular/core/testing';
 
 import { TestingModule, TestStore } from '@testing/utils';
-import { ConfiguracoesFormComponent } from '@app/configuracoes';
+import { ConfiguracoesContainerComponent } from '@app/configuracoes';
 import {
   ActionConfiguracoesChangeAnimationsElements,
   ActionConfiguracoesChangeAnimationsPage,
@@ -18,9 +18,9 @@ import {
 } from '@app/configuracoes/configuracoes.actions';
 import { ConfiguracoesStateModel } from '@app/configuracoes/configuracoes.model';
 
-describe('ConfiguracoesFormComponent', () => {
-  let component: ConfiguracoesFormComponent;
-  let fixture: ComponentFixture<ConfiguracoesFormComponent>;
+describe('ConfiguracoesContainerComponent', () => {
+  let component: ConfiguracoesContainerComponent;
+  let fixture: ComponentFixture<ConfiguracoesContainerComponent>;
   let store: TestStore<ConfiguracoesStateModel>;
   let dispatchSpy;
 
@@ -32,7 +32,7 @@ describe('ConfiguracoesFormComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        declarations: [ConfiguracoesFormComponent],
+        declarations: [ConfiguracoesContainerComponent],
         imports: [TestingModule]
       }).compileComponents();
     })
@@ -49,7 +49,7 @@ describe('ConfiguracoesFormComponent', () => {
         elementsAnimations: true,
         language: 'en'
       });
-      fixture = TestBed.createComponent(ConfiguracoesFormComponent);
+      fixture = TestBed.createComponent(ConfiguracoesContainerComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();
     })
