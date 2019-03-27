@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Actions, ofActionDispatched, ofActionSuccessful, Store } from '@ngxs/store';
+import { Actions, ofActionSuccessful, Store } from '@ngxs/store';
 import { AnimationsService, LocalStorageService } from '@app/core';
 import {
   ActionConfiguracoesChangeAnimationsElements,
   ActionConfiguracoesChangeAnimationsPage,
-  ActionConfiguracoesChangeAutoNightMode, ActionConfiguracoesChangeHour,
-  ActionConfiguracoesChangeLanguage, ActionConfiguracoesChangeStickyHeader,
-  ActionConfiguracoesChangeTheme,
-  ActionConfiguracoesPersist
+  ActionConfiguracoesChangeAnimationsPageDisabled,
+  ActionConfiguracoesChangeAutoNightMode,
+  ActionConfiguracoesChangeLanguage,
+  ActionConfiguracoesChangeStickyHeader,
+  ActionConfiguracoesChangeTheme
 } from '@app/configuracoes/configuracoes.actions';
-import { tap, withLatestFrom } from 'rxjs/operators';
+import { ConfiguracoesStateModel } from '@app/configuracoes/configuracoes.model';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 export const CONFIGURACOES_KEY = 'CONFIGURACOES';
 
@@ -19,23 +21,66 @@ export class ConfiguracoesHandler {
     private actions$: Actions,
     private localStorageService: LocalStorageService,
     private animationsService: AnimationsService,
-    private store: Store
+    private store: Store,
+    private overlayContainer: OverlayContainer,
   ) {
     console.log('configuracoes handler created');
 
-    this.actions$
-      .pipe(ofActionDispatched(ActionConfiguracoesPersist))
-      .subscribe(({ payload }) => {
+    this.actions$.pipe(
+      ofActionSuccessful(
+        ActionConfiguracoesChangeAnimationsElements,
+        ActionConfiguracoesChangeAnimationsPage,
+        ActionConfiguracoesChangeAnimationsPageDisabled,
+        ActionConfiguracoesChangeAutoNightMode,
+        ActionConfiguracoesChangeLanguage,
+        ActionConfiguracoesChangeStickyHeader,
+        ActionConfiguracoesChangeTheme
+      ))
+      .subscribe(() => {
+        let configuracoes: ConfiguracoesStateModel = null;
+        this.store
+          .select(state => state.configuracoes)
+          .subscribe(value => configuracoes = value);
+        this.localStorageService.setItem(CONFIGURACOES_KEY, configuracoes);
+      });
 
-        const observable = this.store.select(state => state.configuracoes);
-        const { configuracoes } = payload;
+    this.actions$.pipe(
+      ofActionSuccessful(
+        ActionConfiguracoesChangeAnimationsElements,
+        ActionConfiguracoesChangeAnimationsPage
+      ))
+      .subscribe(() => {
+        let configuracoes: ConfiguracoesStateModel = null;
+        this.store
+          .select(state => state.configuracoes)
+          .subscribe(value => configuracoes = value);
         const { pageAnimations, elementsAnimations } = configuracoes;
 
-        this.localStorageService.setItem(CONFIGURACOES_KEY, configuracoes);
         this.animationsService.updateRouteAnimationType(
           pageAnimations,
           elementsAnimations
         );
+      });
+
+    this.actions$.pipe(
+      ofActionSuccessful(
+        ActionConfiguracoesChangeTheme,
+      ))
+      .subscribe(() => {
+        let configuracoes: ConfiguracoesStateModel = null;
+        this.store
+          .select(state => state.configuracoes)
+          .subscribe(value => configuracoes = value);
+        const { theme } = configuracoes;
+
+        const classList = this.overlayContainer.getContainerElement().classList;
+        const toRemove = Array.from(classList).filter((item: string) =>
+          item.includes('-theme')
+        );
+        if (toRemove.length) {
+          classList.remove(...toRemove);
+        }
+        classList.add(theme);
       });
   }
 }

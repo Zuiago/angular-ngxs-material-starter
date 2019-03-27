@@ -51,19 +51,6 @@ export class ConfiguracoesContainerComponent implements OnInit {
 
   onLanguageSelect({ value: language }) {
     this.store.dispatch(new ActionConfiguracoesChangeLanguage({ language }));
-    this.store.dispatch(
-      new ActionConfiguracoesPersist({ configuracoes: {
-          language: 'pt-br',
-          theme: 'SANEAGO-THEME',
-          nightTheme: NIGHT_MODE_THEME,
-          stickyHeader: true,
-          autoNightMode: false,
-          pageAnimations: true,
-          pageAnimationsDisabled: false,
-          elementsAnimations: true,
-          hour: 0
-        }})
-    );
   }
 
   onThemeSelect({ value: theme }) {

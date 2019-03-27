@@ -55,6 +55,8 @@ export class AppComponent implements OnInit, OnDestroy {
   settings: ConfiguracoesStateModel;
   isAuthenticated$: Observable<boolean>;
   stickyHeader$: Observable<boolean>;
+  language$: Observable<string>;
+  theme$: Observable<string>;
 
   constructor(
     public overlayContainer: OverlayContainer,
@@ -64,8 +66,10 @@ export class AppComponent implements OnInit, OnDestroy {
     private animationService: AnimationsService,
     private translate: TranslateService
   ) {
-    this.isAuthenticated$ = this.store.select(state => state.auth.isAuthenticated);
-    this.stickyHeader$ = this.store.select(state => state.configura.stickyHeader);
+  }
+
+  private static isIEorEdgeOrSafari() {
+    return ['ie', 'edge', 'safari'].includes(browser().name);
   }
 
   private static trackPageView(event: NavigationEnd) {
@@ -73,13 +77,22 @@ export class AppComponent implements OnInit, OnDestroy {
     (<any>window).ga('send', 'pageview');
   }
 
-  private static isIEorEdgeOrSafari() {
-    return ['ie', 'edge', 'safari'].includes(browser().name);
-  }
-
   ngOnInit(): void {
+    if (AppComponent.isIEorEdgeOrSafari()) {
+      this.store.dispatch(
+        new ActionConfiguracoesChangeAnimationsPageDisabled({
+          pageAnimationsDisabled: true
+        })
+      );
+    }
+
+    this.isAuthenticated$ = this.store.select(state => state.auth.isAuthenticated);
+    this.stickyHeader$ = this.store.select(state => state.configuracoes.stickyHeader);
+    this.language$ = this.store.select(state => state.configuracoes.language);
+    this.theme$ = this.store.select(state => state.configuracoes.theme);
+
     this.translate.setDefaultLang('en');
-    this.subscribeToConfiguracoes();
+    // this.subscribeToConfiguracoes();
     // this.subscribeToIsAuthenticated();
     this.subscribeToRouterEvents();
   }
@@ -99,23 +112,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onLanguageSelect({ value: language }) {
     this.store.dispatch(new ActionConfiguracoesChangeLanguage(language));
-    this.store.dispatch(
-      new ActionConfiguracoesPersist({ configuracoes: this.settings })
-    );
   }
-
-  // private subscribeToIsAuthenticated() {
-  //   this.store
-  //     .select(state => state.auth)
-  //     .subscribe(auth => {
-  //       this.isAuthenticated = auth.isAuthenticated;
-  //     });
-  // }
 
   private subscribeToConfiguracoes() {
     if (AppComponent.isIEorEdgeOrSafari()) {
       this.store.dispatch([
-        new ActionConfiguracoesChangeAnimationsPageDisabled({ pageAnimationsDisabled: true})
+        new ActionConfiguracoesChangeAnimationsPageDisabled({ pageAnimationsDisabled: true })
       ]);
     }
     this.store
@@ -135,8 +137,8 @@ export class AppComponent implements OnInit, OnDestroy {
     const { theme, autoNightMode } = settings;
     const hours = new Date().getHours();
     const effectiveTheme = (autoNightMode && (hours >= 20 || hours <= 6)
-      ? NIGHT_MODE_THEME
-      : theme
+        ? NIGHT_MODE_THEME
+        : theme
     ).toLowerCase();
     this.componentCssClass = effectiveTheme;
     const classList = this.overlayContainer.getContainerElement().classList;
