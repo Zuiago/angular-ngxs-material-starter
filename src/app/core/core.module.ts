@@ -6,8 +6,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { environment } from '@env/environment';
-
-import { initStateFromLocalStorage } from './meta-reducers/init-state-from-local-storage.reducer';
 import { LocalStorageService } from './local-storage/local-storage.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { AnimationsService } from './animations/animations.service';
@@ -33,7 +31,7 @@ import { AppErrorHandler } from '@app/core/error-handler/app-error-handler.servi
       }
     }),
 
-    // ngrx
+    // ngxs
     NgxsModule.forRoot([])
   ],
   declarations: [],
