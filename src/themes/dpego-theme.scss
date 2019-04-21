@@ -1,0 +1,9 @@
+$anms-dpego-primary: mat-palette($mat-green, 700, 300, 800);
+$anms-dpego-accent: mat-palette($mat-light-green);
+$anms-dpego-warn: mat-palette($mat-red, 600);
+
+$anms-dpego-theme: mat-light-theme(
+  $anms-dpego-primary,
+  $anms-dpego-accent,
+  $anms-dpego-warn
+);

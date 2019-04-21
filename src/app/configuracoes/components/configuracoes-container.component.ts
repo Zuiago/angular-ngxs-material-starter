@@ -4,14 +4,13 @@ import {
   ActionConfiguracoesChangeAnimationsElements,
   ActionConfiguracoesChangeAnimationsPage,
   ActionConfiguracoesChangeAutoNightMode,
-  ActionConfiguracoesChangeLanguage, ActionConfiguracoesChangeStickyHeader,
-  ActionConfiguracoesChangeTheme,
-  ActionConfiguracoesPersist
+  ActionConfiguracoesChangeLanguage,
+  ActionConfiguracoesChangeStickyHeader,
+  ActionConfiguracoesChangeTheme
 } from '@app/configuracoes/configuracoes.actions';
-import { ConfiguracoesStateModel, NIGHT_MODE_THEME } from '@app/configuracoes/configuracoes.model';
+import { ConfiguracoesStateModel } from '@app/configuracoes/configuracoes.model';
 import { Observable } from 'rxjs';
 import { ROUTE_ANIMATIONS_ELEMENTS } from '@app/core';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'anms-configuracoes',
@@ -29,7 +28,8 @@ export class ConfiguracoesContainerComponent implements OnInit {
     { value: 'LIGHT-THEME', label: 'light' },
     { value: 'NATURE-THEME', label: 'nature' },
     { value: 'BLACK-THEME', label: 'dark' },
-    { value: 'SANEAGO-THEME', label: 'saneago' }
+    { value: 'SANEAGO-THEME', label: 'saneago' },
+    { value: 'DPEGO-THEME', label: 'dpego' }
   ];
 
   languages = [
@@ -47,7 +47,8 @@ export class ConfiguracoesContainerComponent implements OnInit {
     this.configuracoes$ = this.store.select(state => state.configuracoes);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   onLanguageSelect({ value: language }) {
     this.store.dispatch(new ActionConfiguracoesChangeLanguage({ language }));

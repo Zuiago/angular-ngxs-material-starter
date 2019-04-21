@@ -18,7 +18,7 @@ import { ConfiguracoesStateModel, NIGHT_MODE_THEME } from '@app/configuracoes/co
   name: 'configuracoes',
   defaults: {
     language: 'pt-br',
-    theme: 'SANEAGO-THEME',
+    theme: 'DPEGO-THEME',
     nightTheme: NIGHT_MODE_THEME,
     stickyHeader: true,
     autoNightMode: false,

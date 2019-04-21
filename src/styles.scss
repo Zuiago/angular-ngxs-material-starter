@@ -13,6 +13,7 @@
 @import 'themes/black-theme.scss';
 @import 'themes/nature-theme.scss';
 @import 'themes/saneago-theme';
+@import 'themes/dpego-theme';
 
 @import 'styles-reset.scss-theme';
 @import 'app/app.component.scss-theme';
@@ -60,4 +61,9 @@
 .saneago-theme {
   @include angular-material-theme($anms-saneago-theme);
   @include custom-components-theme($anms-saneago-theme);
+}
+
+.dpego-theme {
+  @include angular-material-theme($anms-dpego-theme);
+  @include custom-components-theme($anms-dpego-theme);
 }

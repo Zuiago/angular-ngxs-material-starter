@@ -1,16 +1,6 @@
 import { Action, State, StateContext } from '@ngxs/store';
-import {
-  ActionConfiguracoesChangeAutoNightMode,
-  ActionConfiguracoesChangeLanguage,
-  ActionConfiguracoesChangeTheme
-} from './configuracoes.actions';
 import { v4 as uuid } from 'uuid';
-import {
-  ActionTodosAdd,
-  ActionTodosFilter,
-  ActionTodosRemoveDone,
-  ActionTodosToggle
-} from '@app/examples/todos/todos.actions';
+import { ActionTodosAdd, ActionTodosFilter, ActionTodosRemoveDone, ActionTodosToggle } from '@app/examples/todos/todos.actions';
 import { Todo, TodosStateModel } from '@app/examples/todos/todos.model';
 
 export const TODOS_KEY = 'EXAMPLES.TODOS';

@@ -148,7 +148,8 @@ export class AppComponent implements OnInit, OnDestroy {
     if (toRemove.length) {
       classList.remove(...toRemove);
     }
-    classList.add(effectiveTheme);
+    console.log(effectiveTheme);
+    classList.add(effectiveTheme.toLocaleLowerCase());
   }
 
   private setLanguage(settings: ConfiguracoesStateModel) {

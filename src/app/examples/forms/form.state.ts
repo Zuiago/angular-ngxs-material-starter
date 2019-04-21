@@ -1,14 +1,6 @@
-import { Action, Selector, State, StateContext } from '@ngxs/store';
-import {
-  ActionConfiguracoesChangeAutoNightMode,
-  ActionConfiguracoesChangeLanguage,
-  ActionConfiguracoesChangeTheme
-} from './configuracoes.actions';
+import { Action, State, StateContext } from '@ngxs/store';
 import { FormModel, FormStateModel } from '@app/examples/forms/form.model';
-import {
-  ActionFormReset,
-  ActionFormUpdate
-} from '@app/examples/forms/form.actions';
+import { ActionFormReset, ActionFormUpdate } from '@app/examples/forms/form.actions';
 
 export const initialState: FormStateModel = {
   form: {} as FormModel
