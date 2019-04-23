@@ -10,7 +10,7 @@ import {
   ActionConfiguracoesChangeStickyHeader,
   ActionConfiguracoesChangeTheme
 } from '@app/configuracoes/configuracoes.actions';
-import { ConfiguracoesStateModel } from '@app/configuracoes/configuracoes.model';
+import { ConfiguracoesStateModel, NIGHT_MODE_THEME } from '@app/configuracoes/configuracoes.model';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
 export const CONFIGURACOES_KEY = 'CONFIGURACOES';
@@ -44,43 +44,48 @@ export class ConfiguracoesHandler {
         this.localStorageService.setItem(CONFIGURACOES_KEY, configuracoes);
       });
 
-    this.actions$.pipe(
-      ofActionSuccessful(
-        ActionConfiguracoesChangeAnimationsElements,
-        ActionConfiguracoesChangeAnimationsPage
-      ))
-      .subscribe(() => {
-        let configuracoes: ConfiguracoesStateModel = null;
-        this.store
-          .select(state => state.configuracoes)
-          .subscribe(value => configuracoes = value);
-        const { pageAnimations, elementsAnimations } = configuracoes;
-
-        this.animationsService.updateRouteAnimationType(
-          pageAnimations,
-          elementsAnimations
-        );
-      });
-
-    this.actions$.pipe(
-      ofActionSuccessful(
-        ActionConfiguracoesChangeTheme,
-      ))
-      .subscribe(() => {
-        let configuracoes: ConfiguracoesStateModel = null;
-        this.store
-          .select(state => state.configuracoes)
-          .subscribe(value => configuracoes = value);
-        const { theme } = configuracoes;
-
-        const classList = this.overlayContainer.getContainerElement().classList;
-        const toRemove = Array.from(classList).filter((item: string) =>
-          item.includes('-theme')
-        );
-        if (toRemove.length) {
-          classList.remove(...toRemove);
-        }
-        classList.add(theme);
-      });
+    // this.actions$.pipe(
+    //   ofActionSuccessful(
+    //     ActionConfiguracoesChangeAnimationsElements,
+    //     ActionConfiguracoesChangeAnimationsPage
+    //   ))
+    //   .subscribe(() => {
+    //     let configuracoes: ConfiguracoesStateModel = null;
+    //     this.store
+    //       .select(state => state.configuracoes)
+    //       .subscribe(value => configuracoes = value);
+    //     const { pageAnimations, elementsAnimations } = configuracoes;
+    //
+    //     this.animationsService.updateRouteAnimationType(
+    //       pageAnimations,
+    //       elementsAnimations
+    //     );
+    //   });
+    //
+    // this.actions$.pipe(
+    //   ofActionSuccessful(
+    //     ActionConfiguracoesChangeTheme,
+    //   ))
+    //   .subscribe(() => {
+    //     let configuracoes: ConfiguracoesStateModel = null;
+    //     this.store
+    //       .select(state => state.configuracoes)
+    //       .subscribe(value => configuracoes = value);
+    //     const { theme, autoNightMode } = configuracoes;
+    //     const hours = new Date().getHours();
+    //     const effectiveTheme = (autoNightMode && (hours >= 20 || hours <= 6)
+    //         ? NIGHT_MODE_THEME
+    //         : theme
+    //     ).toLowerCase();
+    //     const classList = this.overlayContainer.getContainerElement().classList;
+    //     const toRemove = Array.from(classList).filter((item: string) =>
+    //       item.includes('-theme')
+    //     );
+    //     if (toRemove.length) {
+    //       classList.remove(...toRemove);
+    //     }
+    //     console.log(effectiveTheme);
+    //     classList.add(effectiveTheme);
+    //   });
   }
 }

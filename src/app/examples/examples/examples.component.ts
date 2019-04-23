@@ -17,11 +17,14 @@ export class ExamplesComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
   private isAuthenticated$: Observable<boolean>;
 
+
   examples = [
     { link: 'todos', label: 'anms.examples.menu.todos' },
-    { link: 'forms', label: 'anms.examples.menu.forms' },
     { link: 'stock-market', label: 'anms.examples.menu.stocks' },
     { link: 'theming', label: 'anms.examples.menu.theming' },
+    { link: 'crud', label: 'anms.examples.menu.crud' },
+    { link: 'form', label: 'anms.examples.menu.form' },
+    { link: 'notifications', label: 'anms.examples.menu.notifications' },
     { link: 'authenticated', label: 'anms.examples.menu.auth', auth: true }
   ];
 
@@ -36,9 +39,7 @@ export class ExamplesComponent implements OnInit, OnDestroy {
     this.translate.setDefaultLang('en');
     this.subscribeToConfiguracoes();
     this.subscribeToRouterEvents();
-    this.isAuthenticated$ = this.store
-      .select(state => state.auth)
-      .pipe(map(auth => auth.isAuthenticated));
+    this.isAuthenticated$ = this.store.select(state => state.auth.isAuthenticated);
   }
 
   ngOnDestroy(): void {

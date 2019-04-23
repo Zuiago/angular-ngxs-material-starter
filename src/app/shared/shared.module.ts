@@ -20,6 +20,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSliderModule } from '@angular/material/';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
 
 import { BigInputComponent } from './big-input/big-input.component';
 import { BigInputActionComponent } from './big-input/big-input-action.component';
@@ -38,7 +42,6 @@ import { CpfDirective } from '@app/core/directivas/cpf.directive';
 import { CepDirective } from '@app/core/directivas/cep.directive';
 import { CnpjDirective } from '@app/core/directivas/cnpj.directive';
 import { CpfCnpjDirective } from '@app/core/directivas/cpfcnpj.directive';
-import { MatDividerModule } from '@angular/material';
 import { RtlSupportDirective } from '@app/shared/rtl-support/rtl-support.directive';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -112,6 +115,7 @@ library.add(
     CommonModule,
     FormsModule,
     TranslateModule,
+
     MatButtonModule,
     MatToolbarModule,
     MatSelectModule,
@@ -129,6 +133,7 @@ library.add(
     MatSnackBarModule,
     MatSlideToggleModule,
     MatDividerModule,
+
     FontAwesomeModule
   ],
   declarations: [
@@ -155,8 +160,11 @@ library.add(
   exports: [
     CommonModule,
     FormsModule,
+
     ReactiveFormsModule,
+
     TranslateModule,
+
     MatButtonModule,
     MatMenuModule,
     MatTabsModule,
@@ -173,12 +181,17 @@ library.add(
     MatTooltipModule,
     MatSnackBarModule,
     MatSlideToggleModule,
+    MatDividerModule,
+    MatSliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
     FontAwesomeModule,
 
     BigInputComponent,
     BigInputActionComponent,
     RtlSupportDirective,
+
     EnumToArrayPipe,
     EnumToObjectPipe,
     ToUpperCasePipe,
@@ -197,4 +210,5 @@ library.add(
     CpfCnpjDirective
   ]
 })
-export class SharedModule {}
+export class SharedModule {
+}

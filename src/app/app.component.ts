@@ -92,7 +92,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.theme$ = this.store.select(state => state.configuracoes.theme);
 
     this.translate.setDefaultLang('en');
-    // this.subscribeToConfiguracoes();
+    this.subscribeToConfiguracoes();
     // this.subscribeToIsAuthenticated();
     this.subscribeToRouterEvents();
   }
